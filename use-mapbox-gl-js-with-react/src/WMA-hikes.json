@@ -1,0 +1,50 @@
+{
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bullitt Reservation",
+          "description": "A northside park that is home to the Lincoln Park Zoo"
+        },
+        "geometry": {
+          "coordinates": [-72.756142, 42.502005],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Notchview Reservation",
+          "description": "A lakefront park on Chicago's south side"
+        },
+        "geometry": {
+          "coordinates": [-73.037302, 42.504951],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mountain Meadow",
+          "description": "A downtown park known for its art installations and unique architecture"
+        },
+        "geometry": {
+          "coordinates": [-73.207482, 42.738743],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Chapel Falls",
+          "description": "A downtown park that is the site of many of Chicago's favorite festivals and events"
+        },
+        "geometry": {
+          "coordinates": [-72.760231, 42.482013],
+          "type": "Point"
+        }
+      }
+    ],
+    "type": "FeatureCollection"
+  }
+  
