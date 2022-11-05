@@ -20,3 +20,6 @@
 - 8:30 am - 9:30 am
   - start looking through map examples in Mapbox docs and start reading TrailAPI docs and endpoints
   * install axios for trailapi call and begin work on function for that
+
+* 12:00 pm -
+  - start testing trails api call
