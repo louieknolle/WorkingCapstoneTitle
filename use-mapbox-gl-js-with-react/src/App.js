@@ -1,12 +1,12 @@
 import React from "react";
 import BaseMap from "./Basemap";
-import Map from "./Map";
+import MarkersMap from "./MarkersMap";
 
 const App = () => {
   return (
     <React.Fragment>
       <BaseMap />
-      <Map />
+      <MarkersMap />
     </React.Fragment>
   ); 
 };

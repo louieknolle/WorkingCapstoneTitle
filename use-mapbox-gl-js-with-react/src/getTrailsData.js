@@ -6,7 +6,7 @@ export const getTrailsData = async () => {
           {
             params: {
               lat: '42.525698',
-              limit: '5',
+              limit: '25',
               lon: '-72.789787',
               // 'q-state_cont': 'California',
               radius: '25',
@@ -17,7 +17,6 @@ export const getTrailsData = async () => {
     'x-rapidapi-key': 'b6ae47641fmsh9978bea9f70b35dp186cafjsn91b9f3796f3b'
             }
           });
-          console.log(data)
         return data;
     } catch (error) {
         console.log(error)
