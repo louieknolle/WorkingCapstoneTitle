@@ -17,5 +17,6 @@
 
 #### Saturday, 11/06
 
-- 8:30 am
+- 8:30 am - 9:30 am
   - start looking through map examples in Mapbox docs and start reading TrailAPI docs and endpoints
+  * install axios for trailapi call and begin work on function for that
