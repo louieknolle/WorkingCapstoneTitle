@@ -21,5 +21,12 @@
   - start looking through map examples in Mapbox docs and start reading TrailAPI docs and endpoints
   * install axios for trailapi call and begin work on function for that
 
-* 12:00 pm -
+* 12:00 pm - 1:00 pm
+
   - start testing trails api call
+
+  * successfully call trailapi and log return object to console
+
+* 8:15 pm - 9:30 pm
+  - start trying to get coordinates from trailapi to show up as markers on map and SUCCEED :D
+    -write capstone proposal file
