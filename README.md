@@ -1,3 +1,12 @@
+## Louie Knolle
+
+## Trail-panion
+
+#### Project's goal:
+
+    * _Allow users to create an inventory of hiking/outdoors gear, create packing lists, and browse potential destinations._
+    * _With React.js UI, Node/Express backend, and utilizing at least TrailApi and Mapbox GL JS._
+
 ### Research & Planning Log
 
 #### Tuesday, 11/01
