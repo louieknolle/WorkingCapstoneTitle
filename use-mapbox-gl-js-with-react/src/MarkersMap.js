@@ -6,18 +6,18 @@ import { getTrailsData } from './getTrailsData';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibG91aXNrbm9sbGUiLCJhIjoiY2xhMTh0OXV2MDU3NTNvbDUzenNxMGhyMiJ9.1A_ch-Oku2ehIIJ6uoD_iQ';
 const MarkersMap = () => {
-  
+  // const [coordinates, setCoordinates] = useState({});
   const mapContainerRef = useRef(null);
 
-  useEffect(() => {
-    getTrailsData()
-      .then((data) => {
-        const dataArray = Object.values(data);
-        dataArray.map((location) => {
-          setLong
-        })
-      })
-  }, []);
+  // useEffect(() => {
+  //   getTrailsData()
+  //     .then((data) => {
+  //       const dataArray = Object.values(data);
+  //       return dataArray;
+  //       // dataArray.map((location) =>
+  //       //   setCoordinates(...coordinates, {longitude: location.lon, latitude: location.lat}));
+  //       })
+  //     }, []);
 
   // Initialize map when component mounts
   useEffect(() => {
@@ -27,16 +27,13 @@ const MarkersMap = () => {
       center: [-72.922067, 42.606357],
       zoom: 8,
     });
+
+    getTrailsData()
+      .then((data) => {
+        const dataArray = Object.values(data);
+        return dataArray;
+      });
   
-    useEffect(() => {
-      getTrailsData()
-        .then((data) => {
-          const dataArray = Object.values(data);
-          dataArray.map((location) =>
-        new mapboxgl.Marker().setLngLat([location.lon, location.lat]).addTo(map)
-      );
-        })
-    }, []);
 
     // Create default markers
     geoJson.features.map((feature) =>
