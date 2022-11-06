@@ -1,23 +1,24 @@
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
-// import "./Map.css";
-import geoJson from "./WMA-hikes.json";
+// // import "./Map.css";
+// import geoJson from "./WMA-hikes.json";
 import { getTrailsData } from './getTrailsData';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibG91aXNrbm9sbGUiLCJhIjoiY2xhMTh0OXV2MDU3NTNvbDUzenNxMGhyMiJ9.1A_ch-Oku2ehIIJ6uoD_iQ';
+
 const MarkersMap = () => {
-  // const [coordinates, setCoordinates] = useState({});
+  const [locations, setLocations] = useState([]);
   const mapContainerRef = useRef(null);
 
-  // useEffect(() => {
-  //   getTrailsData()
-  //     .then((data) => {
-  //       const dataArray = Object.values(data);
-  //       return dataArray;
-  //       // dataArray.map((location) =>
-  //       //   setCoordinates(...coordinates, {longitude: location.lon, latitude: location.lat}));
-  //       })
-  //     }, []);
+  useEffect(() => {
+    getTrailsData()
+      .then((data) => {
+        const dataArray = Object.values(data);
+        setLocations(dataArray);
+      })
+    }, []);
+
+  console.log(locations);
 
   // Initialize map when component mounts
   useEffect(() => {
@@ -27,17 +28,11 @@ const MarkersMap = () => {
       center: [-72.922067, 42.606357],
       zoom: 8,
     });
-
-    getTrailsData()
-      .then((data) => {
-        const dataArray = Object.values(data);
-        return dataArray;
-      });
   
 
     // Create default markers
-    geoJson.features.map((feature) =>
-      new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
+    locations.map((location) =>
+      new mapboxgl.Marker().setLngLat([location.lon, location.lat]).addTo(map)
     );
 
     // Add navigation control (the +/- zoom buttons)
@@ -45,7 +40,7 @@ const MarkersMap = () => {
 
     // Clean up on unmount
     return () => map.remove();
-  }, []);
+  }, [locations]);
 
  
 
