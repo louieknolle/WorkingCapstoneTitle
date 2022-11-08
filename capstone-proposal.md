@@ -4,32 +4,34 @@
 
 #### Project's goal:
 
-    * __Allow users to create an inventory of hiking/outdoors gear, create packing lists, and browse potential destinations.__
+    * Allow users to create an inventory of hiking/outdoors gear, create packing lists, and browse potential destinations.
 
 #### Minimum features:
 
-    * _CRUD functionality for hiking gear and save items to a DB._
-    * _Input fields for user search of potential hiking locations_
+    * CRUD functionality for hiking/outdoors gear
+    * Ability to save gear inventory to an external database
+    * Input fields for user search of potential hiking locations
+    * Results from hiking trail search delivered from TrailApi displayed on a map (Mapbox)
 
 #### Tools, frameworks, libraries, APIs, modules and/or other resources:
 
-    * React.js for frontend/UI, Node.js and Express.js for backend/server
+    * React.js for frontend/UI, Sequelize and MySQL for db
     * Tailwind.css
-    * TrailApi for returning list of hiking locations or trails
+    * TrailApi from RapidApi
     * MapBox GL JS Api for displaying locations on map(s)
 
 #### Stretch Goals
 
-    * _user authentication and ability to create user accounts_
-    * _ability to leave reviews and update trail conditions_
-    * _ability to save locations to a favorite places list_
-    * _"Find hike near me" button to make local searches with click of a button_
-    * _Weather for trail locations_
-    * _Typescript?_
+    * user authentication and ability to create user accounts
+    * ability to leave reviews and update trail conditions
+    * ability to save locations to a favorite places list
+    * "Find hike near me" button to make local searches with click of a button
+    * Weather for trail locations
+    * Typescript?
 
 #### Additional tools, frameworks, libraries, APIs, or other resources required for stretch goals
 
-    * _Node authentication package or gmail login_
-    * _MapBox has a native geolocator function if GPS is turned on_
-    * _Open Weather API_
-    * _general time for converting/learning TS_
+    * Node authentication package or gmail login
+    * MapBox has a native geolocator function if GPS is turned on
+    * Open Weather API
+    * general time for converting/learning more TS
