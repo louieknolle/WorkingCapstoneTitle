@@ -4,7 +4,7 @@
 
 #### Project's goal:
 
-    * _Allow users to create an inventory of hiking/outdoors gear, create packing lists, and browse potential destinations._
+    * __Allow users to create an inventory of hiking/outdoors gear, create packing lists, and browse potential destinations.__
 
 #### Minimum features:
 
