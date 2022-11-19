@@ -1,27 +1,34 @@
-import React, { useRef } from 'react';
-import useSearchForm from './useSearchForm';
+import React from 'react';
 
+const SearchForm = (props) => {
 
-const SearchForm = () => {
+  function handleSearchFormSubmit(event) {
+    event.preventDefault();
+    props.onSearchTrails({
+      city: event.target.city.value, 
+      state: event.target.state.value, 
+      activity: event.target.activity.value, 
+    });
+
   return (
     <React.Fragment>
       <form 
-        // onSubmit={props.formSubmissionHandler}
+        onSubmit={handleSearchFormSubmit}
         className='grid place-items-center'
         >
         <input
           required
           className='border-2 m-1'
           type='text'
-          name='city'
+          name="city"
           placeholder='City' />
         <input
           required
           className='border-2 m-1'
           type='text'
-          name='state'
+          name="state"
           placeholder='State' />
-        <select name="activity" id="" required>
+        <select name="activity" required>
           <option value="">Select activity</option>
           <option value="hiking">Hiking</option>
           <option value="camping">Camping</option>
@@ -36,7 +43,7 @@ const SearchForm = () => {
       </form>
     </React.Fragment>
   )
+  }
 }
-
 
 export default SearchForm;
