@@ -11,7 +11,7 @@ const HomeMap = () => {
 
   const [lng, setLng] = useState(-99.4805);
   const [lat, setLat] = useState(41.1983);
-  const [zoom, setZoom] = useState(3.4);
+  const [zoom, setZoom] = useState(3.1);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -33,15 +33,15 @@ const HomeMap = () => {
   });
 
   return (
-    <div className='container'>
-      <div className='sidebarStyle inline-block z-10'>
+    <div className="container">
+      <div className="sidebarStyle inline-block z-10">
         <div>
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>
       </div>
-      <div className='map-container' ref={mapContainer} />
+      <div className="map-container" ref={mapContainer} />
     </div>
   );
-}
+};
 
 export default HomeMap;

@@ -7,16 +7,14 @@ const SearchAndMapControl = () => {
   const [data, setData] = useState({});
 
   const onSubmitSearch = (newSearch) => {
-    setData(newSearch);
     console.log(data);
+    setData(newSearch);
   };
 
   return (
     <React.Fragment>
-      <div className="joeys-hawt">
-        <SearchForm onSearchTrails={onSubmitSearch} />
-        <HomeMap />
-      </div>
+      <SearchForm onSearchTrails={onSubmitSearch} />
+      <HomeMap />
     </React.Fragment>
   );
 };
