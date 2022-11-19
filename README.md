@@ -42,6 +42,6 @@
 
 #### Friday, 11/18
 
-- 8:00 pm
+- 8:00 pm - 10:00 pm
   - start buidling trailpanion as a react app
-  -
+  - add Mapbox to home page
