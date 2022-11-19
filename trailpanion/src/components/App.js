@@ -1,14 +1,14 @@
-import "../App.css";
+import React from "react";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p className="text-xl">
+        <p className="text-5xl ">
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
-          className="App-link"
+          className="App-link text-red-700"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
