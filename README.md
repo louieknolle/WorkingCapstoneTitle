@@ -39,3 +39,9 @@
 * 8:15 pm - 9:30 pm
   - start trying to get coordinates from trailapi to show up as markers on map and SUCCEED :D
     -write capstone proposal file
+
+#### Friday, 11/18
+
+- 8:00 pm
+  - start buidling trailpanion as a react app
+  -
