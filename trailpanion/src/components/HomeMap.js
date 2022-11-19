@@ -33,13 +33,13 @@ const HomeMap = () => {
   });
 
   return (
-    <div className='h-full'>
+    <div className='container'>
       <div className='sidebarStyle inline-block z-10'>
         <div>
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>
       </div>
-      <div className='map-container w-4/5 h-auto' ref={mapContainer} />
+      <div className='map-container' ref={mapContainer} />
     </div>
   );
 }
