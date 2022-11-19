@@ -22,6 +22,7 @@ const SearchForm = () => {
           name='state'
           placeholder='State' />
         <select name="activity" id="" required>
+          <option value="">Select activity</option>
           <option value="hiking">Hiking</option>
           <option value="camping">Camping</option>
           <option value="trail-running">Trail running</option>
