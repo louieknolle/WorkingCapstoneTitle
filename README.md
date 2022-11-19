@@ -49,7 +49,9 @@
 #### Saturday, 11/19
 
 - 7:00 am - 8:30 am, 9:45 am - 10:30 am
-  -start working on map container bug, display map and add form
-  -start connecting form data to trailapi, research react-hook-form library
+  - start working on map container bug, display map and add form
+  - start connecting form data to trailapi, research react-hook-form library
+- 12:30 - 1:30 pm
+   - switch back to manually collecting form values and setting as state to be used in trail api call
   
 
