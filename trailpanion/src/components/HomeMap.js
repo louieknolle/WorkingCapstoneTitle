@@ -5,9 +5,10 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 mapboxgl.accessToken =
   "pk.eyJ1IjoibG91aXNrbm9sbGUiLCJhIjoiY2xhMTh0OXV2MDU3NTNvbDUzenNxMGhyMiJ9.1A_ch-Oku2ehIIJ6uoD_iQ";
 
-export default function HomeMap() {
+const HomeMap = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
+
   const [lng, setLng] = useState(-72.922067);
   const [lat, setLat] = useState(42.606357);
   const [zoom, setZoom] = useState(9);
@@ -30,4 +31,17 @@ export default function HomeMap() {
       setZoom(map.current.getZoom().toFixed(2));
     });
   });
+
+  return (
+    <div>
+      <div className='sidebarStyle'>
+        <div>
+          Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+        </div>
+      </div>
+      <div className='map-container w-7/12 ' ref={mapContainer} />
+    </div>
+  );
 }
+
+export default HomeMap;
