@@ -9,15 +9,15 @@ const HomeMap = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
 
-  const [lng, setLng] = useState(-72.922067);
-  const [lat, setLat] = useState(42.606357);
-  const [zoom, setZoom] = useState(9);
+  const [lng, setLng] = useState(-99.4805);
+  const [lat, setLat] = useState(41.1983);
+  const [zoom, setZoom] = useState(3.4);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/outdoors-v11",
       center: [lng, lat],
       zoom: zoom,
     });
@@ -33,13 +33,13 @@ const HomeMap = () => {
   });
 
   return (
-    <div>
-      <div className='sidebarStyle'>
+    <div className='h-full'>
+      <div className='sidebarStyle inline-block z-10'>
         <div>
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>
       </div>
-      <div className='map-container w-7/12 ' ref={mapContainer} />
+      <div className='map-container w-4/5 h-auto' ref={mapContainer} />
     </div>
   );
 }

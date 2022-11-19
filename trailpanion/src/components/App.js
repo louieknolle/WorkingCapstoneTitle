@@ -6,7 +6,9 @@ const App = () => {
   return (
     <React.Fragment>
       <Header />
+      <div className='container'>
       <HomeMap />
+      </div >
     </React.Fragment>
   );
 };
