@@ -1,23 +1,12 @@
 import React from "react";
+import Header from "./Header";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p className="text-5xl ">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link text-red-700"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Header />
+    </React.Fragment>
   );
-}
+};
 
 export default App;
