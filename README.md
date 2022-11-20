@@ -55,3 +55,5 @@
 - 12:30 - 2:00 pm
   - switch back to manually collecting form values and setting as state to be used in trail api call
   - take way too long finding issue caused by misplaced }
+- 8:30 pm -
+  - start trying to figure out how to get user coordinates
