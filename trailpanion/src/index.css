@@ -4,8 +4,8 @@
 
 .map-container {
   position: absolute;
-  top: 10%;
-  bottom: 15%;
+  top: 7%;
+  bottom: 30%;
   left: 0;
   right: 0;
 }
@@ -13,7 +13,7 @@
 .sidebarStyle {
   display: inline-block;
   position: absolute;
-  top: 10%;
+  top: 7%;
   left: 0;
   margin: 12px;
   background-color: #404040;

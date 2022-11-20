@@ -4,32 +4,31 @@ const SearchForm = (props) => {
   function handleSearchFormSubmit(event) {
     event.preventDefault();
     props.onSearchTrails({
-      city: event.target.city.value,
-      state: event.target.state.value,
+      lat: event.target.lat.value,
+      long: event.target.long.value,
       activity: event.target.activity.value,
     });
-    console.log("captured submit!");
   }
 
   return (
     <React.Fragment>
       <form
         onSubmit={handleSearchFormSubmit}
-        className="grid place-items-center z-10 absolute inset-y-1/3 bg-slate-200 left-auto rounded shadow-lg"
+        className="grid place-items-center z-10 absolute inset-y-1/3 inset-x-1/8 bg-slate-200 left-auto rounded shadow-lg"
       >
         <input
           required
           className="border-2 m-1"
           type="text"
-          name="city"
-          placeholder="City"
+          name="lat"
+          placeholder="Latitude"
         />
         <input
           required
           className="border-2 m-1"
           type="text"
-          name="state"
-          placeholder="State"
+          name="long"
+          placeholder="Longitude"
         />
         <select name="activity" required className="border-2">
           <option value="">Select activity</option>

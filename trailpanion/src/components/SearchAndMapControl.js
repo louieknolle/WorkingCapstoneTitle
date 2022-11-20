@@ -14,13 +14,12 @@ const SearchAndMapControl = () => {
   };
 
   useEffect(() => {
-    getTrailsData().then((response) => {
+    getTrailsData(data.lat, data.long, data.activity).then((response) => {
       const responseArray = Object.values(response);
       setResults(responseArray);
+      console.log(results);
     });
-  }, []);
-
-  console.log(results);
+  }, [data]);
 
   return (
     <React.Fragment>
