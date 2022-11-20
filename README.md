@@ -44,4 +44,4 @@
 
 - 8:00 pm
   - start buidling trailpanion as a react app
-  -
+  - install tailwind css
