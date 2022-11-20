@@ -55,5 +55,7 @@
 - 12:30 - 2:00 pm
   - switch back to manually collecting form values and setting as state to be used in trail api call
   - take way too long finding issue caused by misplaced }
-- 8:30 pm -
+- 8:30 pm - 10:15 pm
   - start trying to figure out how to get user coordinates
+  - read up more on mapbox geocoding for obtaining coordinates from city/state
+  - at least finally got userinputs to be used in trailapi call, sans state though and temporarily w/ long and lat as the fields
