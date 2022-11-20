@@ -39,7 +39,7 @@ const HomeMap = () => {
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
         </div>
       </div>
-      <div className="map-container" ref={mapContainer} />
+      <div className="map-container shadow-xl" ref={mapContainer} />
     </div>
   );
 };

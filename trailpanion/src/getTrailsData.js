@@ -1,19 +1,19 @@
 import axios from "axios";
 
-export const getTrailsData = async (userLat, userLong, userActivity) => {
+export const getTrailsData = async (props) => {
   try {
     const { data } = await axios.get(
       "https://trailapi-trailapi.p.rapidapi.com/activity/",
       {
         params: {
-          lat: userLat,
+          lat: props.lat,
           //"42.525698"
           limit: "5",
-          lon: userLong,
-          //"-72.789787"
+          lon: props.long,
+          //"-77.8625"
           // 'q-state_cont': 'California',
           radius: "2",
-          "q-activities_activity_type_name_eq": userActivity,
+          "q-activities_activity_type_name_eq": props.activity,
         },
         headers: {
           "x-rapidapi-host": "trailapi-trailapi.p.rapidapi.com",
