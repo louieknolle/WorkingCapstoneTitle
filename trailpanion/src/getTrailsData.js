@@ -12,7 +12,7 @@ export const getTrailsData = async (props) => {
           lon: props.long,
           //"-77.8625"
           // 'q-state_cont': 'California',
-          radius: "2",
+          radius: "25",
           "q-activities_activity_type_name_eq": props.activity,
         },
         headers: {

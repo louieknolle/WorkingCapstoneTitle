@@ -6,8 +6,6 @@ mapboxgl.accessToken =
 
 const ResultsMap = (props) => {
   const { searchPoint, results } = props;
-  const resultsArray = Object.values(results);
-  console.log(resultsArray);
   const mapContainerRef = useRef(null);
 
   // Initialize map when component mounts
@@ -20,7 +18,7 @@ const ResultsMap = (props) => {
     });
 
     // Create default markers
-    resultsArray.map((location) =>
+    results.map((location) =>
       new mapboxgl.Marker().setLngLat([location.lon, location.lat]).addTo(map)
     );
 
@@ -29,7 +27,7 @@ const ResultsMap = (props) => {
 
     // Clean up on unmount
     return () => map.remove();
-  }, []);
+  }, [results, searchPoint.lat, searchPoint.long]);
 
   return <div className="map-container shadow-xl" ref={mapContainerRef} />;
 };

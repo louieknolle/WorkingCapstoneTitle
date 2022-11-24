@@ -4,7 +4,7 @@ import ResultsMap from "./ResultsMap";
 import React, { useState } from "react";
 import TrailResults from "./TrailResults";
 import { getTrailsData } from "../getTrailsData";
-import mapboxgl from "mapbox-gl";
+// import mapboxgl from "mapbox-gl";
 
 const SearchAndMapControl = () => {
   const [userSearch, setUserSearch] = useState(null);
@@ -13,20 +13,10 @@ const SearchAndMapControl = () => {
   const onSubmitSearch = (userInput) => {
     setUserSearch(userInput);
     getTrailsData(userInput).then((response) => {
-      setResults(response);
+      const responseArray = Object.values(response);
+      setResults(responseArray);
     });
   };
-  // const responseArray = Object.values(response);
-  // setResults(responseArray);
-  // console.log(results);
-
-  // useEffect(() => {
-  //   getTrailsData(data.lat, data.long, data.activity).then((response) => {
-  //     const responseArray = Object.values(response);
-  //     setResults(responseArray);
-  //     console.log(results);
-  //   });
-  // }, [data]);
 
   return (
     <React.Fragment>
@@ -36,7 +26,7 @@ const SearchAndMapControl = () => {
       ) : (
         <HomeMap />
       )}
-
+      <HomeMap />
       {!!results ? <TrailResults /> : null}
     </React.Fragment>
   );
