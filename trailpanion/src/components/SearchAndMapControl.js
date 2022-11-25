@@ -8,7 +8,7 @@ import { getTrailsData } from "../getTrailsData";
 
 const SearchAndMapControl = () => {
   const [userSearch, setUserSearch] = useState(null);
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState([]);
 
   const onSubmitSearch = (userInput) => {
     setUserSearch(userInput);
@@ -16,18 +16,19 @@ const SearchAndMapControl = () => {
       const responseArray = Object.values(response);
       setResults(responseArray);
     });
+    console.log(results);
+    console.log(userSearch);
   };
 
   return (
     <React.Fragment>
       <SearchForm onSearchTrails={onSubmitSearch} />
-      {!!results ? (
+      {results.length > 0 ? (
         <ResultsMap searchPoint={userSearch} results={results} />
       ) : (
         <HomeMap />
       )}
-      <HomeMap />
-      {!!results ? <TrailResults /> : null}
+      {results.length > 0 ? <TrailResults trailsList={results} /> : null}
     </React.Fragment>
   );
 };

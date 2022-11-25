@@ -10,24 +10,26 @@ const ResultsMap = (props) => {
 
   // Initialize map when component mounts
   useEffect(() => {
-    const map = new mapboxgl.Map({
-      container: mapContainerRef.current,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [searchPoint.long, searchPoint.lat],
-      zoom: 8,
-    });
+    if (!!searchPoint && results.length > 0) {
+      const map = new mapboxgl.Map({
+        container: mapContainerRef.current,
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [searchPoint.long, searchPoint.lat],
+        zoom: 8,
+      });
 
-    // Create default markers
-    results.map((location) =>
-      new mapboxgl.Marker().setLngLat([location.lon, location.lat]).addTo(map)
-    );
+      //   Create default markers
+      results.map((result) =>
+        new mapboxgl.Marker().setLngLat([result.lon, result.lat]).addTo(map)
+      );
 
-    // Add navigation control (the +/- zoom buttons)
-    map.addControl(new mapboxgl.NavigationControl(), "top-right");
+      // Add navigation control (the +/- zoom buttons)
+      map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-    // Clean up on unmount
-    return () => map.remove();
-  }, [results, searchPoint.lat, searchPoint.long]);
+      // Clean up on unmount
+      return () => map.remove();
+    }
+  }, [results, searchPoint.lat, searchPoint.long, searchPoint]);
 
   return <div className="map-container shadow-xl" ref={mapContainerRef} />;
 };
