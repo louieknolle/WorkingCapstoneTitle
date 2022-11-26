@@ -4,20 +4,26 @@ import ResultsMap from "./ResultsMap";
 import React, { useState } from "react";
 import TrailResults from "./TrailResults";
 import { getTrailsData } from "../getTrailsData";
-// import mapboxgl from "mapbox-gl";
+import { getCityCoordinates } from "../getCityCoordinates";
 
 const SearchAndMapControl = () => {
   const [userSearch, setUserSearch] = useState(null);
+  const [location, setLocation] = useState(null);
   const [results, setResults] = useState([]);
 
   const onSubmitSearch = (userInput) => {
     setUserSearch(userInput);
-    getTrailsData(userInput).then((response) => {
-      const responseArray = Object.values(response);
-      setResults(responseArray);
+    getCityCoordinates(userInput).then((response) => {
+      setLocation(response);
     });
-    console.log(results);
-    console.log(userSearch);
+    getTrailsData(location, userSearch).then((trailsResponse) => {
+      const trailsResponseArray = Object.values(trailsResponse);
+      setResults(trailsResponseArray);
+      console.log(trailsResponse);
+    });
+    // console.log(response);
+
+    // console.log(userSearch);
   };
 
   return (
