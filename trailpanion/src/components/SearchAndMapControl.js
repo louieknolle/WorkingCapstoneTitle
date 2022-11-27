@@ -4,26 +4,19 @@ import ResultsMap from "./ResultsMap";
 import React, { useState } from "react";
 import TrailResults from "./TrailResults";
 import { getTrailsData } from "../getTrailsData";
-import { getCityCoordinates } from "../getCityCoordinates";
+// import { getCityCoordinates } from "../getCityCoordinates";
 
 const SearchAndMapControl = () => {
   const [userSearch, setUserSearch] = useState(null);
-  const [location, setLocation] = useState(null);
   const [results, setResults] = useState([]);
 
-  const onSubmitSearch = (userInput) => {
+  const onSubmitSearch = async (userInput) => {
+    // const coordinates = await getCityCoordinates(userInput);
+    const trailData = await getTrailsData(userInput);
+    const trailDataArray = Object.values(trailData);
     setUserSearch(userInput);
-    getCityCoordinates(userInput).then((response) => {
-      setLocation(response);
-    });
-    getTrailsData(location, userSearch).then((trailsResponse) => {
-      const trailsResponseArray = Object.values(trailsResponse);
-      setResults(trailsResponseArray);
-      console.log(trailsResponse);
-    });
-    // console.log(response);
-
-    // console.log(userSearch);
+    // setResults(trailDataArray);
+    console.log(trailDataArray[0].lon, trailDataArray[0].lat);
   };
 
   return (

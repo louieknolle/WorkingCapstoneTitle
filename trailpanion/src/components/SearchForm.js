@@ -6,7 +6,7 @@ const SearchForm = (props) => {
     props.onSearchTrails({
       city: event.target.city.value,
       state: event.target.state.value,
-      activity: event.target.activity.value,
+      // activity: event.target.activity.value,
     });
   }
 
