@@ -15,7 +15,7 @@ const SearchAndMapControl = () => {
     const trailData = await getTrailsData(userInput);
     const trailDataArray = Object.values(trailData);
     setUserSearch(userInput);
-    // setResults(trailDataArray);
+    setResults(trailDataArray);
     console.log(trailDataArray[0].lon, trailDataArray[0].lat);
   };
 
