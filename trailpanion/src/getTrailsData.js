@@ -40,7 +40,7 @@ export const getTrailsData = async (props) => {
       {
         params: {
           lat: coordinates.data[0].lat,
-          limit: "5",
+          limit: "10",
           lon: coordinates.data[0].lon,
           radius: "25",
           "q-activities_activity_type_name_eq": props.activity,
@@ -52,7 +52,7 @@ export const getTrailsData = async (props) => {
         },
       }
     );
-    return data;
+    return { data, coordinates };
   } catch (error) {
     console.log(error);
   }

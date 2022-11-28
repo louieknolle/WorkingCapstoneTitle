@@ -14,7 +14,7 @@ const ResultsMap = (props) => {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: "mapbox://styles/mapbox/streets-v11",
-        center: [searchPoint.long, searchPoint.lat],
+        center: [searchPoint.data[0].lon, searchPoint.data[0].lat],
         zoom: 8,
       });
 

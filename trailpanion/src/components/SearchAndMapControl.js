@@ -13,10 +13,9 @@ const SearchAndMapControl = () => {
   const onSubmitSearch = async (userInput) => {
     // const coordinates = await getCityCoordinates(userInput);
     const trailData = await getTrailsData(userInput);
-    const trailDataArray = Object.values(trailData);
-    setUserSearch(userInput);
+    const trailDataArray = Object.values(trailData.data);
+    setUserSearch(trailData.coordinates);
     setResults(trailDataArray);
-    console.log(trailDataArray[0].lon, trailDataArray[0].lat);
   };
 
   return (
