@@ -1,30 +1,5 @@
 import axios from "axios";
 
-// export const getTrailsData = async (userSearch) => {
-//   try {
-//     const { data } = await axios.get(
-//       "https://trailapi-trailapi.p.rapidapi.com/activity/",
-//       {
-//         params: {
-//           lat: userSearch[0].lat,
-//           limit: "5",
-//           lon: userSearch[0].lon,
-//           radius: "25",
-//           "q-activities_activity_type_name_eq": "hiking",
-//         },
-//         headers: {
-//           "x-rapidapi-host": "trailapi-trailapi.p.rapidapi.com",
-//           "x-rapidapi-key":
-//             "b6ae47641fmsh9978bea9f70b35dp186cafjsn91b9f3796f3b",
-//         },
-//       }
-//     );
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 const baseUrl = "http://api.openweathermap.org/geo/1.0/direct?";
 const apiKey = "744e1e7aabb5c8deb215ca4cfd8afa8b";
 
@@ -40,7 +15,7 @@ export const getTrailsData = async (props) => {
       {
         params: {
           lat: coordinates.data[0].lat,
-          limit: "10",
+          limit: "5",
           lon: coordinates.data[0].lon,
           radius: "25",
           "q-activities_activity_type_name_eq": props.activity,
