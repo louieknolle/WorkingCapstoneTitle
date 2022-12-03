@@ -13,7 +13,7 @@ const ResultsMap = (props) => {
     if (!!searchPoint && results.length > 0) {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
-        style: "mapbox://styles/mapbox/streets-v11",
+        style: "mapbox://styles/mapbox/outdoors-v11",
         center: [searchPoint.data[0].lon, searchPoint.data[0].lat],
         zoom: 8,
       });

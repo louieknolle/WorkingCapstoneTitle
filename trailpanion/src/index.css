@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html: {
+  background-color: #01ff7f;
+}
+
 .map-container {
   position: absolute;
   top: 10%;
@@ -12,11 +16,16 @@
 
 #homeSideBar {
   top: 10%;
+  bottom: 0;
+  height: auto;
+  width: 20%;
+  overflow-y: auto;
 }
 
 header {
   height: 10%;
 }
+
 /* 
 .sidebarStyle {
   display: inline-block;

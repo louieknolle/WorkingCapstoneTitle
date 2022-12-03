@@ -15,16 +15,20 @@ const SearchForm = (props) => {
       <form
         onSubmit={handleSearchFormSubmit}
         id="searchForm"
-        className="flex flex-col justify-evenly z-10 absolute top-0 left-0 bg-springGreen text-midnightBlue left-auto rounded shadow-lg h-full p-1"
+        className="flex flex-col justify-center z-10 absolute top-0 bg-midnightBlue text-springGreen shadow-lg h-full p-1 w-full"
       >
         <input
           required
-          className="border-2"
+          className="border-2 text-midnightBlue border-springGreen m-3"
           type="text"
           name="city"
           placeholder="City/Town"
         />
-        <select name="state" required className="border-2">
+        <select
+          name="state"
+          required
+          className="m-3 border-2 text-midnightBlue border-springGreen"
+        >
           <option value="">Select State</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -78,17 +82,18 @@ const SearchForm = (props) => {
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
-        <select name="activity" required className="">
+        <select
+          name="activity"
+          required
+          className="m-3 text-midnightBlue border-2 border-springGreen"
+        >
           <option value="">Select activity</option>
           <option value="hiking">Hiking</option>
           <option value="camping">Camping</option>
           <option value="trail-running">Trail running</option>
           <option value="mountain-biking">Mountain biking</option>
         </select>
-        <button
-          className="border-2 p-2 m-1 flex bg-white rounded-md"
-          type="submit"
-        >
+        <button className="border-2 p-2 m-2 bg-white rounded-md" type="submit">
           Search
         </button>
       </form>

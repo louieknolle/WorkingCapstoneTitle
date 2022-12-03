@@ -22,7 +22,7 @@ const SearchAndMapControl = () => {
     <React.Fragment>
       <div
         id="homeSideBar"
-        className="flex flex-col z-10 absolute top-0 left-0 bg-springGreen text-midnightBlue left-auto shadow-lg h-full p-1"
+        className="flex flex-col z-10 absolute top-0 left-0 bg-midnightBlue text-springGreen shadow-lg p-1 "
       >
         {results.length > 0 ? (
           <TrailResults trailsList={results} />
