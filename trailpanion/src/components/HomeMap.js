@@ -31,16 +31,7 @@ const HomeMap = () => {
     });
   });
 
-  return (
-    <div className="container">
-      <div className="sidebarStyle inline-block z-10">
-        <div>
-          Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-        </div>
-      </div>
-      <div className="map-container shadow-xl" ref={mapContainer} />
-    </div>
-  );
+  return <div className="map-container shadow-xl" ref={mapContainer} />;
 };
 
 export default HomeMap;

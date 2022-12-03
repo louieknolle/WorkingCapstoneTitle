@@ -20,13 +20,23 @@ const SearchAndMapControl = () => {
 
   return (
     <React.Fragment>
-      <SearchForm onSearchTrails={onSubmitSearch} />
-      {results.length > 0 ? (
-        <ResultsMap searchPoint={userSearch} results={results} />
-      ) : (
-        <HomeMap />
-      )}
-      {results.length > 0 ? <TrailResults trailsList={results} /> : null}
+      <div
+        id="homeSideBar"
+        className="flex flex-col z-10 absolute top-0 left-0 bg-springGreen text-midnightBlue left-auto shadow-lg h-full p-1"
+      >
+        {results.length > 0 ? (
+          <TrailResults trailsList={results} />
+        ) : (
+          <SearchForm onSearchTrails={onSubmitSearch} />
+        )}
+      </div>
+      <div className="">
+        {results.length > 0 ? (
+          <ResultsMap searchPoint={userSearch} results={results} />
+        ) : (
+          <HomeMap />
+        )}
+      </div>
     </React.Fragment>
   );
 };

@@ -6,7 +6,7 @@ const SearchForm = (props) => {
     props.onSearchTrails({
       city: event.target.city.value,
       state: event.target.state.value,
-      // activity: event.target.activity.value,
+      activity: event.target.activity.value,
     });
   }
 
@@ -14,11 +14,12 @@ const SearchForm = (props) => {
     <React.Fragment>
       <form
         onSubmit={handleSearchFormSubmit}
-        className="grid place-items-center z-10 absolute inset-y-1/3 inset-x-1/8 bg-slate-200 left-auto rounded shadow-lg"
+        id="searchForm"
+        className="flex flex-col justify-evenly z-10 absolute top-0 left-0 bg-springGreen text-midnightBlue left-auto rounded shadow-lg h-full p-1"
       >
         <input
           required
-          className="border-2 m-1"
+          className="border-2"
           type="text"
           name="city"
           placeholder="City/Town"
@@ -77,7 +78,7 @@ const SearchForm = (props) => {
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
-        <select name="activity" required className="border-2">
+        <select name="activity" required className="">
           <option value="">Select activity</option>
           <option value="hiking">Hiking</option>
           <option value="camping">Camping</option>

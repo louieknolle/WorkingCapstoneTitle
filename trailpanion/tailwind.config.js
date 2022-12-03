@@ -6,6 +6,10 @@ module.exports = {
     container: {
       center: true,
     },
+    colors: {
+      midnightBlue: "#226385",
+      springGreen: "#01ff7f",
+    },
   },
   plugins: [],
 };

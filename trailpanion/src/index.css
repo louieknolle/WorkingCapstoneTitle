@@ -4,12 +4,20 @@
 
 .map-container {
   position: absolute;
-  top: 8%;
-  bottom: 30%;
+  top: 10%;
+  bottom: 0;
   left: 0;
   right: 0;
 }
 
+#homeSideBar {
+  top: 10%;
+}
+
+header {
+  height: 10%;
+}
+/* 
 .sidebarStyle {
   display: inline-block;
   position: absolute;
@@ -22,4 +30,4 @@
   padding: 6px;
   font-weight: bold;
   opacity: 0.6;
-}
+} */
