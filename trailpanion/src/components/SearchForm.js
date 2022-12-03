@@ -90,8 +90,8 @@ const SearchForm = (props) => {
           <option value="">Select activity</option>
           <option value="hiking">Hiking</option>
           <option value="camping">Camping</option>
-          <option value="trail-running">Trail running</option>
-          <option value="mountain-biking">Mountain biking</option>
+          <option value="snow sports">Snow sports</option>
+          <option value="mountain biking">Mountain biking</option>
         </select>
         <button className="border-2 p-2 m-2 bg-white rounded-md" type="submit">
           Search

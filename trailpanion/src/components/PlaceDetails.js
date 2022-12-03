@@ -17,7 +17,7 @@ const PlaceDetails = (props) => {
     <section className="container  bg-midnightBlue">
       <button
         className="text-xl text-springGreen mt-1 hover:underline"
-        onClick={() => navigate("/trailResults", { state: props })}
+        onClick={() => navigate(-1)}
       >
         Back to results
       </button>
