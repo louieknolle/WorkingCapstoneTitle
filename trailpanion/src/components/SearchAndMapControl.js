@@ -7,7 +7,7 @@ import { getTrailsData } from "../getTrailsData";
 // import { getCityCoordinates } from "../getCityCoordinates";
 
 const SearchAndMapControl = () => {
-  const [userSearch, setUserSearch] = useState(null);
+  const [userData, setUserData] = useState(null);
   const [results, setResults] = useState([]);
   const [activity, setActivity] = useState(null);
 
@@ -15,7 +15,7 @@ const SearchAndMapControl = () => {
     // const coordinates = await getCityCoordinates(userInput);
     const trailData = await getTrailsData(userInput);
     const trailDataArray = Object.values(trailData.data);
-    setUserSearch(trailData.coordinates);
+    setUserData(trailData.coordinates);
     setResults(trailDataArray);
     setActivity(userInput.activity);
   };
@@ -29,7 +29,7 @@ const SearchAndMapControl = () => {
         {results.length > 0 ? (
           <TrailResults
             trailsList={results}
-            userSearch={userSearch}
+            userData={userData}
             activity={activity}
           />
         ) : (
@@ -38,7 +38,7 @@ const SearchAndMapControl = () => {
       </div>
       <div className="">
         {results.length > 0 ? (
-          <ResultsMap searchPoint={userSearch} results={results} />
+          <ResultsMap searchPoint={userData} results={results} />
         ) : (
           <HomeMap />
         )}

@@ -12,21 +12,24 @@ const PlaceDetails = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
   const trail = location.state;
-  const { activity, userSearch } = props;
-
-  console.log(activity);
-  console.log(userSearch);
 
   return (
     <section className="container  bg-midnightBlue">
-      <button
-        className="text-xl text-springGreen mt-1 hover:underline"
-        onClick={() => navigate(-1)}
-      >
-        Back to results
-      </button>
-      <h1 className="text-center text-4xl text-springGreen mt-8 border-2 border-springGreen">
-        {trail.name}
+      <div className="flex justify-between">
+        <button
+          className="text-xl text-springGreen mt-2 hover:underline"
+          onClick={() => navigate(-1)}
+        >
+          Back to results
+        </button>
+        <button className="text-xl text-springGreen mt-2 hover:underline">
+          Save to favorites
+        </button>
+      </div>
+      <h1 className="text-center text-4xl text-springGreen mt-8 border-2 border-springGreen p-6">
+        <span className="p-2 border-2 border-springGreen bg-springGreen text-midnightBlue">
+          {trail.name}
+        </span>
       </h1>
       <article className="flex border-2 border-springGreen mt-2 p-1">
         <ul className="bg-springGreen text-midnightBlue m-4 p-4 border-4 border-midnightBlue">
