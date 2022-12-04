@@ -15,7 +15,7 @@ export const getTrailsData = async (props) => {
       {
         params: {
           lat: coordinates.data[0].lat,
-          limit: "15",
+          limit: "5",
           lon: coordinates.data[0].lon,
           radius: "25",
           "q-activities_activity_type_name_eq": props.activity,

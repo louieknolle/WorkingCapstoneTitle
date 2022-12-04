@@ -12,6 +12,10 @@ const PlaceDetails = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
   const trail = location.state;
+  const { activity, userSearch } = props;
+
+  console.log(activity);
+  console.log(userSearch);
 
   return (
     <section className="container  bg-midnightBlue">

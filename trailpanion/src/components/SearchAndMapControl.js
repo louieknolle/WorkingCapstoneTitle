@@ -9,6 +9,7 @@ import { getTrailsData } from "../getTrailsData";
 const SearchAndMapControl = () => {
   const [userSearch, setUserSearch] = useState(null);
   const [results, setResults] = useState([]);
+  const [activity, setActivity] = useState(null);
 
   const onSubmitSearch = async (userInput) => {
     // const coordinates = await getCityCoordinates(userInput);
@@ -16,6 +17,7 @@ const SearchAndMapControl = () => {
     const trailDataArray = Object.values(trailData.data);
     setUserSearch(trailData.coordinates);
     setResults(trailDataArray);
+    setActivity(userInput.activity);
   };
 
   return (
@@ -25,7 +27,11 @@ const SearchAndMapControl = () => {
         className="flex flex-col z-10 absolute top-0 left-0 bg-midnightBlue text-springGreen shadow-lg p-1 "
       >
         {results.length > 0 ? (
-          <TrailResults trailsList={results} />
+          <TrailResults
+            trailsList={results}
+            userSearch={userSearch}
+            activity={activity}
+          />
         ) : (
           <SearchForm onSearchTrails={onSubmitSearch} />
         )}
