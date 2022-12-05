@@ -14,7 +14,7 @@ const ResultsMap = (props) => {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: "mapbox://styles/mapbox/outdoors-v11",
-        center: [searchPoint.data[0].lon, searchPoint.data[0].lat],
+        center: [searchPoint.lon, searchPoint.lat],
         zoom: 8,
       });
 

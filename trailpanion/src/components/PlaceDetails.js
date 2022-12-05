@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 // const styles = {
 //   img: {
@@ -10,18 +10,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const PlaceDetails = (props) => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const trail = location.state;
+  const trail =
+    !!location && !!location.state && location.state.trail
+      ? location.state.trail
+      : null;
 
   return (
     <section className="container  bg-midnightBlue">
-      <div className="flex justify-between">
-        <button
-          className="text-xl text-springGreen mt-2 hover:underline"
-          onClick={() => navigate(-1)}
-        >
+      <div className="flex justify-between text-xl text-springGreen mt-2 ">
+        <Link to="/" state={location.state} className="hover:underline">
           Back to results
-        </button>
+        </Link>
         <button className="text-xl text-springGreen mt-2 hover:underline">
           Save to favorites
         </button>

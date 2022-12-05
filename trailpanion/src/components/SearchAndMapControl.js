@@ -4,18 +4,35 @@ import ResultsMap from "./ResultsMap";
 import React, { useState } from "react";
 import TrailResults from "./TrailResults";
 import { getTrailsData } from "../getTrailsData";
-// import { getCityCoordinates } from "../getCityCoordinates";
+import { useLocation } from "react-router-dom";
 
 const SearchAndMapControl = () => {
-  const [userData, setUserData] = useState(null);
-  const [results, setResults] = useState([]);
-  const [activity, setActivity] = useState(null);
+  const location = useLocation();
+  const [userData, setUserData] = useState(
+    !!location && !!location.state && location.state.userData
+      ? location.state.userData
+      : null
+  );
+  const [results, setResults] = useState(
+    !!location && !!location.state && location.state.trailsList
+      ? location.state.trailsList
+      : []
+  );
+  const [activity, setActivity] = useState(
+    !!location && !!location.state && location.state.activity
+      ? location.state.activity
+      : null
+  );
 
   const onSubmitSearch = async (userInput) => {
-    // const coordinates = await getCityCoordinates(userInput);
     const trailData = await getTrailsData(userInput);
     const trailDataArray = Object.values(trailData.data);
-    setUserData(trailData.coordinates);
+    console.log({ trailData });
+    const latLong = {
+      lat: trailData.coordinates.data[0].lat,
+      lon: trailData.coordinates.data[0].lon,
+    };
+    setUserData(latLong);
     setResults(trailDataArray);
     setActivity(userInput.activity);
   };
@@ -27,11 +44,25 @@ const SearchAndMapControl = () => {
         className="flex flex-col z-10 absolute top-0 left-0 bg-midnightBlue text-springGreen shadow-lg p-1 "
       >
         {results.length > 0 ? (
-          <TrailResults
-            trailsList={results}
-            userData={userData}
-            activity={activity}
-          />
+          <>
+            <TrailResults
+              trailsList={results}
+              userData={userData}
+              activity={activity}
+            />
+            <div className="flex justify-center">
+              <button
+                className="border-2 p-2 m-2 bg-white rounded-md text-center m-auto"
+                onClick={() => {
+                  setUserData(null);
+                  setResults([]);
+                  setActivity(null);
+                }}
+              >
+                Back to search
+              </button>
+            </div>
+          </>
         ) : (
           <SearchForm onSearchTrails={onSubmitSearch} />
         )}
