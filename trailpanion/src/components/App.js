@@ -5,6 +5,7 @@ import SearchAndMapControl from "./SearchAndMapControl";
 import PlaceDetails from "./PlaceDetails";
 import TrailResults from "./TrailResults";
 import ResultsMap from "./ResultsMap";
+import GearList from "./GearList";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="resultsMap" element={<ResultsMap />} />
           <Route path="placeDetails" element={<PlaceDetails />} />
           <Route path="trailResults" element={<TrailResults />} />
+          <Route path="gearList" element={<GearList />} />
         </Route>
       </Routes>
     </BrowserRouter>
