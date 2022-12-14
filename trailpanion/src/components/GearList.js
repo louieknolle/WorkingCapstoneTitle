@@ -10,7 +10,11 @@ const gearCategories = [
 ];
 
 const GearList = () => {
-  return <React.Fragment></React.Fragment>;
+  return (
+    <React.Fragment>
+      <h1>This</h1>
+    </React.Fragment>
+  );
 };
 
 export default GearList;
