@@ -1,18 +1,30 @@
-import React from "react";
-
-const gearCategories = [
-  "Clothing",
-  "Backpacks",
-  "Sleeping Gear",
-  "Shelter",
-  "Footwear",
-  "Cooking",
-];
+import React, { useState, useEffect } from "react";
+import GearDetails from "./GearDetails";
 
 const GearList = () => {
+  const [backpacks, setBackpacks] = useState(null);
+
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      const response = await fetch("/api/backpacks");
+      const json = await response.json();
+
+      if (response.ok) {
+        setBackpacks(json);
+      }
+    };
+
+    fetchWorkouts();
+  }, []);
   return (
     <React.Fragment>
-      <h1>This</h1>
+      <div className="backpacks">
+        <h2 className="text-4xl m-2">Backpacks</h2>
+        {backpacks &&
+          backpacks.map((backpack) => (
+            <GearDetails key={backpack._id} backpack={backpack} />
+          ))}
+      </div>
     </React.Fragment>
   );
 };
