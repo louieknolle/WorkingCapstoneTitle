@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useBackpacksContext } from "../hooks/useBackpacksContext";
 import GearDetails from "./GearDetails";
 import CreateBackpackForm from "./CreateBackpackForm";
 
 const GearList = () => {
-  const [backpacks, setBackpacks] = useState(null);
+  const { backpacks, dispatch } = useBackpacksContext();
 
   useEffect(() => {
     const fetchBackpacks = async () => {
@@ -11,7 +12,7 @@ const GearList = () => {
       const json = await response.json();
 
       if (response.ok) {
-        setBackpacks(json);
+        dispatch({ type: "SET_BACKPACKS", payload: json });
       }
     };
 

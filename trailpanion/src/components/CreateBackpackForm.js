@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useBackpacksContext } from "../hooks/useBackpacksContext";
 
 const CreateBackpackForm = () => {
+  const { dispatch } = useBackpacksContext();
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
   const [weight, setWeight] = useState("");
@@ -31,6 +33,7 @@ const CreateBackpackForm = () => {
       setWeight("");
       setCapacity("");
       console.log("new backpack added:", json);
+      dispatch({ type: "CREATE_BACKPACK", payload: json });
     }
   };
 
