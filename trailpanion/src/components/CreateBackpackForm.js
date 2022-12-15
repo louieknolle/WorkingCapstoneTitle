@@ -8,6 +8,7 @@ const CreateBackpackForm = () => {
   const [weight, setWeight] = useState("");
   const [capacity, setCapacity] = useState("");
   const [error, setError] = useState("");
+  const [emptyFields, setEmptyFields] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +26,7 @@ const CreateBackpackForm = () => {
 
     if (!response.ok) {
       setError(json.error);
+      setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
       setError(null);
@@ -32,6 +34,7 @@ const CreateBackpackForm = () => {
       setModel("");
       setWeight("");
       setCapacity("");
+      setEmptyFields([]);
       console.log("new backpack added:", json);
       dispatch({ type: "CREATE_BACKPACK", payload: json });
     }
@@ -46,12 +49,14 @@ const CreateBackpackForm = () => {
         type="text"
         onChange={(e) => setBrand(e.target.value)}
         value={brand}
+        className={emptyFields.includes("brand") ? "border-red-600" : ""}
       />
       <label>Model:</label>
       <input
         type="text"
         onChange={(e) => setModel(e.target.value)}
         value={model}
+        className={emptyFields.includes("model") ? "border-red-600" : ""}
       />
 
       <label>Weight (in g):</label>
@@ -59,6 +64,7 @@ const CreateBackpackForm = () => {
         type="number"
         onChange={(e) => setWeight(e.target.value)}
         value={weight}
+        className={emptyFields.includes("weight") ? "error" : ""}
       />
 
       <label>Storage capacity(in L):</label>
@@ -66,6 +72,7 @@ const CreateBackpackForm = () => {
         type="number"
         onChange={(e) => setCapacity(e.target.value)}
         value={capacity}
+        className={emptyFields.includes("capacity") ? "error" : ""}
       />
 
       <button className="m-2 bg-springGreen ">Add backpack</button>

@@ -17,7 +17,7 @@ const GearList = () => {
     };
 
     fetchBackpacks();
-  }, []);
+  }, [dispatch]);
   return (
     <React.Fragment>
       <div className="flex justify-evenly">

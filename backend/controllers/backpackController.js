@@ -29,6 +29,26 @@ const getBackpack = async (req, res) => {
 const createBackpack = async (req, res) => {
   const { brand, model, weight, capacity } = req.body;
 
+  let emptyFields = [];
+
+  if (!brand) {
+    emptyFields.push("brand");
+  }
+  if (!model) {
+    emptyFields.push("model");
+  }
+  if (!weight) {
+    emptyFields.push("weight");
+  }
+  if (!capacity) {
+    emptyFields.push("capacity");
+  }
+  if (emptyFields.length > 0) {
+    return res
+      .status(400)
+      .json({ error: "Please fill in all the field", emptyFields });
+  }
+
   // add to the database
   try {
     const backpack = await Backpack.create({ brand, model, weight, capacity });

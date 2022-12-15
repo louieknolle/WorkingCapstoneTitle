@@ -12,6 +12,12 @@ export const backpacksReducer = (state, action) => {
       return {
         backpacks: [action.payload, ...state.backpacks],
       };
+    case "DELETE_BACKPACK":
+      return {
+        backpacks: state.backpacks.filter(
+          (backpack) => backpack._id !== action.payload._id
+        ),
+      };
     default:
       return state;
   }
