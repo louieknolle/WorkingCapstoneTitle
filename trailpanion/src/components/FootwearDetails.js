@@ -17,14 +17,14 @@ const FootwearDetails = ({ footwear }) => {
   };
 
   return (
-    <div className="footwearDetails m-4">
+    <div className="footwearDetails m-4 flex flex-row justify-between items-center">
       <h4 className="text-3xl">
         {footwear.brand} {footwear.model}
       </h4>
-      <p>
+      {/* <p>
         <strong>Weight (g): </strong>
         {footwear.style}
-      </p>
+      </p> */}
       <span
         className="material-symbols-outlined cursor-pointer"
         onClick={handleClick}

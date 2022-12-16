@@ -29,11 +29,10 @@ const BackpacksList = () => {
 
         <div className="backpacks">
           <h2 className="text-4xl m-2">Backpacks</h2>
-          {backpacks.length
-            ? backpacks.map((backpack) => (
-                <BackpackDetails key={backpack._id} backpack={backpack} />
-              ))
-            : null}
+          {backpacks.length &&
+            backpacks.map((backpack) => (
+              <BackpackDetails key={backpack._id} backpack={backpack} />
+            ))}
         </div>
       </div>
     </React.Fragment>

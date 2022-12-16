@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 app.use("/api/backpacks", backpackRoutes);
 app.use("/api/sleepItems", sleepItemRoutes);
 app.use("/api/shelters", shelterRoutes);
-app.use("/api/footwears".footwearRoutes);
+app.use("/api/footwears", footwearRoutes);
 
 // connect to db
 mongoose
