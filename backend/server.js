@@ -3,6 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const backpackRoutes = require("./routes/backpacks");
+const sleepItemRoutes = require("./routes/sleepItems");
+const shelterRoutes = require("./routes/shelters");
+const footwearRoutes = require("./routes/footwears");
 
 // express app
 const app = express();
@@ -17,6 +20,9 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/backpacks", backpackRoutes);
+app.use("/api/sleepItems", sleepItemRoutes);
+app.use("/api/shelters", shelterRoutes);
+app.use("/api/footwears".footwearRoutes);
 
 // connect to db
 mongoose

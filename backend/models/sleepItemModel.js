@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const shelterSchema = new Schema(
+const sleepItemSchema = new Schema(
   {
     brand: {
       type: String,
@@ -12,20 +12,16 @@ const shelterSchema = new Schema(
       type: String,
       required: true,
     },
+    kind: {
+      type: string,
+      required: true,
+    },
     weight: {
       type: Number,
-      required: true,
-    },
-    capacity: {
-      type: Number,
-      required: true,
-    },
-    season: {
-      type: String,
       required: true,
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Shelter", shelterSchema);
+module.exports = mongoose.model("SleepItem", sleepItemSchema);
