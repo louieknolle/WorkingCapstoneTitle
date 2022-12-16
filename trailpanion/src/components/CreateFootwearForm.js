@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 
-const CreateBackpackForm = () => {
+const CreateFootwearForm = () => {
   const { dispatch } = useGearContext();
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
-  const [weight, setWeight] = useState("");
-  const [capacity, setCapacity] = useState("");
+  const [style, setStyle] = useState("");
+  const [waterproof, setWaterproof] = useState(null);
   const [error, setError] = useState("");
   const [emptyFields, setEmptyFields] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const backpack = { brand, model, weight, capacity };
+    const footwear = { brand, model, style, waterproof };
 
-    const response = await fetch("/api/backpacks", {
+    const response = await fetch("/api/footwears", {
       method: "POST",
-      body: JSON.stringify(backpack),
+      body: JSON.stringify(footwear),
       headers: {
         "Content-Type": "application/json",
       },
@@ -32,17 +32,17 @@ const CreateBackpackForm = () => {
       setError(null);
       setBrand("");
       setModel("");
-      setWeight("");
-      setCapacity("");
+      setStyle("");
+      setWaterproof("");
       setEmptyFields([]);
-      console.log("new backpack added:", json);
-      dispatch({ gearType: "backpacks", type: "CREATE_GEAR", payload: json });
+      console.log("new footwear added:", json);
+      dispatch({ gearType: "footwears", type: "CREATE_GEAR", payload: json });
     }
   };
 
   return (
     <form className="create flex flex-col" onSubmit={handleSubmit}>
-      <h3>Add a New backpack</h3>
+      <h3>Add New Footwear</h3>
 
       <label>Brand:</label>
       <input
@@ -59,26 +59,26 @@ const CreateBackpackForm = () => {
         className={emptyFields.includes("model") ? "border-red-600" : ""}
       />
 
-      <label>Weight (in g):</label>
+      <label>style:</label>
       <input
         type="number"
-        onChange={(e) => setWeight(e.target.value)}
-        value={weight}
-        className={emptyFields.includes("weight") ? "error" : ""}
+        onChange={(e) => setStyle(e.target.value)}
+        value={style}
+        className={emptyFields.includes("style") ? "error" : ""}
       />
 
-      <label>Storage capacity(in L):</label>
+      <label>Storage waterproof(in L):</label>
       <input
         type="number"
-        onChange={(e) => setCapacity(e.target.value)}
-        value={capacity}
-        className={emptyFields.includes("capacity") ? "error" : ""}
+        onChange={(e) => setWaterproof(e.target.value)}
+        value={waterproof}
+        className={emptyFields.includes("waterproof") ? "error" : ""}
       />
 
-      <button className="m-2 bg-springGreen ">Add backpack</button>
+      <button className="m-2 bg-springGreen ">Add footwear</button>
       {error && <div className="error">{error}</div>}
     </form>
   );
 };
 
-export default CreateBackpackForm;
+export default CreateFootwearForm;
