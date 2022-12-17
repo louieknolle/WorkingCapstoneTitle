@@ -30,7 +30,7 @@ const PlaceDetails = (props) => {
           {trail.name}
         </span>
       </h1>
-      <article className="flex border-2 border-springGreen mt-2 p-1">
+      <article className="flex border-2 border-springGreen mt-2 p-1 justify-center">
         <ul className="bg-springGreen text-midnightBlue m-4 p-4 border-4 border-midnightBlue">
           <div className="border-4 border-midnightBlue p-4">
             <li>
