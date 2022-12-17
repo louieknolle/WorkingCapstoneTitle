@@ -4,22 +4,49 @@ const Schema = mongoose.Schema;
 
 const favoritedTrailSchema = new Schema(
   {
-    name: {
-      type: String,
-      required: true,
+    trail: {
+      type: Object,
+      require: true,
     },
-    location: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    directions: {
-      type: String,
-      required: true,
-    },
+    // activities: {
+    //   type: Object,
+    // },
+    // city: {
+    //   type: String,
+    // },
+    // country: {
+    //   type: String,
+    // },
+    // name: {
+    //   type: String,
+    //   required: true,
+    // },
+    // state: {
+    //   type: String,
+    //   required: true,
+    // },
+    // description: {
+    //   type: String,
+    //   required: true,
+    // },
+    // directions: {
+    //   type: String,
+    //   required: true,
+    // },
+    // lat: {
+    //   type: String,
+    //   required: true,
+    // },
+    // lon: {
+    //   type: String,
+    //   required: true,
+    // },
+    // place_id: {
+    //   type: String,
+    // },
+    // parent_id: {
+    //   type: String,
+    // },
   },
   { timestamps: true }
 );

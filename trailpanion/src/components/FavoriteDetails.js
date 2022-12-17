@@ -26,7 +26,7 @@ const FavoriteDetails = ({ favorite }) => {
       className="m-4 flex flex-row justify-between items-center"
     >
       <h4 className="text-2xl">
-        {favorite.name} ({favorite.model})
+        {favorite.name} ({favorite.site})
       </h4>
       {/* <p>
             <strong>Weight (g): </strong>

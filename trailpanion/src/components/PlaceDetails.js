@@ -10,19 +10,16 @@ const PlaceDetails = (props) => {
     !!location && !!location.state && location.state.trail
       ? location.state.trail
       : null;
-  const { name } = trail.name;
-  const { trailLocation } = [trail.city, trail.state];
-  const { description } = trail.description;
-  const { directions } = trail.directions;
+
+  // const favoritedTrail = { trail.name, site, description, directions };
+  console.log(trail);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const favoritedTrail = { name, trailLocation, description, directions };
-
     const response = await fetch("/api/favoritedTrails", {
       method: "POST",
-      body: JSON.stringify(favoritedTrail),
+      body: JSON.stringify(trail),
       headers: {
         "Content-Type": "application/json",
       },
@@ -53,14 +50,16 @@ const PlaceDetails = (props) => {
 
           {!favoritedStatus ? (
             <span
-              class="material-symbols-outlined cursor-pointer"
+              className="material-symbols-outlined cursor-pointer"
               onClick={handleSubmit}
             >
               heart_plus
             </span>
           ) : (
             <span className="material-symbols-outlined">
-              <span class="material-symbols-outlined">library_add_check</span>
+              <span className="material-symbols-outlined">
+                library_add_check
+              </span>
             </span>
           )}
         </div>

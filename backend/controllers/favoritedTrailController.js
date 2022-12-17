@@ -27,36 +27,66 @@ const getFavoritedTrail = async (req, res) => {
 
 // create a new favoritedTrail
 const createFavoritedTrail = async (req, res) => {
-  const { name, location, description, directions } = req.body;
+  // const {
+  //   activities,
+  //   city,
+  //   country,
+  //   name,
+  //   state,
+  //   description,
+  //   directions,
+  //   lat,
+  //   lon,
+  //   place_id,
+  //   parent_id,
+  // } = req.body;
 
-  let emptyFields = [];
+  // let emptyFields = [];
 
-  if (!name) {
-    emptyFields.push("name");
-  }
-  if (!location) {
-    emptyFields.push("location");
-  }
-  if (!description) {
-    emptyFields.push("description");
-  }
-  if (!directions) {
-    emptyFields.push("directions");
-  }
-  if (emptyFields.length > 0) {
-    return res
-      .status(400)
-      .json({ error: "Please fill in all the fields", emptyFields });
-  }
+  // if (!activities) {
+  //   emptyFields.push("activities");
+  // }
+  // if (!city) {
+  //   emptyFields.push("city");
+  // }
+  // if (!country) {
+  //   emptyFields.push("country");
+  // }
+  // if (!name) {
+  //   emptyFields.push("name");
+  // }
+  // if (!site) {
+  //   emptyFields.push("state");
+  // }
+  // if (!description) {
+  //   emptyFields.push("description");
+  // }
+  // if (!directions) {
+  //   emptyFields.push("directions");
+  // }
+  // if (!lat) {
+  //   emptyFields.push("directions");
+  // }
+  // if (!lon) {
+  //   emptyFields.push("lon");
+  // }
+  // if (emptyFields.length > 0) {
+  //   return res
+  //     .status(400)
+  //     .json({ error: "Please fill in all the fields", emptyFields });
+  // }
 
   // add to the database
   try {
-    const favoritedTrail = await FavoritedTrail.create({
-      name,
-      description,
-      location,
-      directions,
-    });
+    const favoritedTrail = await FavoritedTrail.create(
+      // name,
+      // site,
+      // description,
+      // directions,
+      // lat,
+      // lon,
+      req.body
+    );
     res.status(200).json(favoritedTrail);
   } catch (error) {
     res.status(400).json({ error: error.message });
