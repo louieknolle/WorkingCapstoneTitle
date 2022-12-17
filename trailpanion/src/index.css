@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 html {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: #226385;
 }
 
@@ -16,7 +16,7 @@ html {
   right: 0;
 }
 
-#homeSideBar {
+.homeSideBar {
   top: 10%;
   bottom: 0;
   height: auto;
@@ -26,6 +26,13 @@ html {
 
 header {
   height: 10%;
+}
+
+.backpacks .shelters .footwears .sleepItems {
+  overflow-y: auto;
+  height: 60%;
+  width: auto;
+  border-radius: 1rem;
 }
 
 .error {

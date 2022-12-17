@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 import FootwearDetails from "./FootwearDetails";
-import CreateFootwearForm from "./CreateFootwearForm";
 
 const FootwearsList = () => {
   const { gear, dispatch } = useGearContext();
@@ -24,16 +23,12 @@ const FootwearsList = () => {
   }, [dispatch]);
   return (
     <React.Fragment>
-      <div className="flex justify-evenly">
-        <CreateFootwearForm />
-
-        <div className="footwears">
-          <h2 className="text-4xl m-2">Footwear</h2>
-          {footwears.length &&
-            footwears.map((footwear) => (
-              <FootwearDetails key={footwear._id} footwear={footwear} />
-            ))}
-        </div>
+      <div className="footwears  bg-white w-1/5">
+        <h2 className="text-3xl m-2 text-center">Footwear</h2>
+        {footwears.length &&
+          footwears.map((footwear) => (
+            <FootwearDetails key={footwear._id} footwear={footwear} />
+          ))}
       </div>
     </React.Fragment>
   );

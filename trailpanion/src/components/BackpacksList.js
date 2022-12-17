@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 import BackpackDetails from "./BackpackDetails";
-import CreateBackpackForm from "./CreateBackpackForm";
 
 const BackpacksList = () => {
   const { gear, dispatch } = useGearContext();
@@ -13,7 +12,6 @@ const BackpacksList = () => {
     const fetchBackpacks = async () => {
       const response = await fetch("/api/backpacks");
       const json = await response.json();
-      console.log({ fetched: json });
 
       if (response.ok) {
         dispatch({ gearType: "backpacks", type: "SET_GEAR", payload: json });
@@ -24,16 +22,12 @@ const BackpacksList = () => {
   }, [dispatch]);
   return (
     <React.Fragment>
-      <div className="flex justify-evenly">
-        <CreateBackpackForm />
-
-        <div className="backpacks">
-          <h2 className="text-4xl m-2">Backpacks</h2>
-          {backpacks.length &&
-            backpacks.map((backpack) => (
-              <BackpackDetails key={backpack._id} backpack={backpack} />
-            ))}
-        </div>
+      <div className="backpacks bg-white w-1/5">
+        <h2 className="text-3xl m-2 text-center">Backpacks</h2>
+        {backpacks.length &&
+          backpacks.map((backpack) => (
+            <BackpackDetails key={backpack._id} backpack={backpack} />
+          ))}
       </div>
     </React.Fragment>
   );

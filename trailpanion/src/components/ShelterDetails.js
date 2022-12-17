@@ -17,8 +17,11 @@ const ShelterDetails = ({ shelter }) => {
   };
 
   return (
-    <div className="shelterDetails m-4 flex flex-row justify-evenly items-center">
-      <h4 className="text-3xl">
+    <div
+      id="shelterDetails"
+      className="m-2 flex flex-row justify-between items-center h-16 overflow-y-auto"
+    >
+      <h4 className="text-2xl">
         {shelter.brand} {shelter.model}
       </h4>
       {/* <p>

@@ -17,8 +17,11 @@ const FootwearDetails = ({ footwear }) => {
   };
 
   return (
-    <div className="footwearDetails m-4 flex flex-row justify-between items-center">
-      <h4 className="text-3xl">
+    <div
+      id="footwearDetails"
+      className="m-4 flex flex-row justify-between items-center"
+    >
+      <h4 className="text-2xl">
         {footwear.brand} {footwear.model}
       </h4>
       {/* <p>

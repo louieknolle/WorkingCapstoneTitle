@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 
-const CreateFootwearForm = () => {
+const CreateFootwearForm = ({ onSubmitted }) => {
   const { dispatch } = useGearContext();
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
@@ -29,6 +29,7 @@ const CreateFootwearForm = () => {
       setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
+      onSubmitted();
       setError("");
       setBrand("");
       setModel("");

@@ -12,7 +12,7 @@ export const gearReducer = (state, action) => {
     // return {
     //   gear: action.payload,
     // };
-    case "CREATE_GEAR_2":
+    case "CREATE_GEAR":
       return {
         gear: {
           backpacks:
@@ -33,12 +33,12 @@ export const gearReducer = (state, action) => {
               : [...state.gear.sleepItems],
         },
       };
-    case "CREATE_GEAR":
-      state.gear[action.gearType] = [
-        action.payload,
-        ...state.gear[action.gearType],
-      ];
-      return { ...state };
+    // case "CREATE_GEAR":
+    //   state.gear[action.gearType] = [
+    //     action.payload,
+    //     ...state.gear[action.gearType],
+    //   ];
+    //   return { ...state };
 
     case "DELETE_GEAR":
       state.gear[action.gearType] = state.gear[action.gearType].filter(

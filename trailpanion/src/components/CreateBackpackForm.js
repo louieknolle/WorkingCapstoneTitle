@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 
-const CreateBackpackForm = () => {
+const CreateBackpackForm = ({ onSubmitted }) => {
   const { dispatch } = useGearContext();
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
@@ -29,6 +29,7 @@ const CreateBackpackForm = () => {
       setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
+      onSubmitted();
       setError(null);
       setBrand("");
       setModel("");

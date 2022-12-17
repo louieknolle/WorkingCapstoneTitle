@@ -40,8 +40,8 @@ const SearchAndMapControl = () => {
   return (
     <React.Fragment>
       <div
-        id="homeSideBar"
-        className="flex flex-col z-10 absolute top-0 left-0 bg-midnightBlue text-springGreen shadow-lg p-1 "
+        id=""
+        className="flex flex-col z-10 absolute top-0 left-0 bg-midnightBlue text-springGreen shadow-lg p-1 homeSideBar"
       >
         {results.length > 0 ? (
           <>

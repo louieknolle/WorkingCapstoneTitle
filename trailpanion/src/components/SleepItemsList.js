@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 import SleepItemDetails from "./SleepItemDetails";
-import CreateSleepItemForm from "./CreateSleepItemForm";
 
 const SleepItemsList = () => {
   const { gear, dispatch } = useGearContext();
@@ -23,16 +22,12 @@ const SleepItemsList = () => {
   }, [dispatch]);
   return (
     <React.Fragment>
-      <div className="flex justify-evenly">
-        <CreateSleepItemForm />
-
-        <div className="backpacks">
-          <h2 className="text-xl m-2">Sleep Gear</h2>
-          {sleepItems.length &&
-            sleepItems.map((sleepItem) => (
-              <SleepItemDetails key={sleepItem._id} sleepItem={sleepItem} />
-            ))}
-        </div>
+      <div className="backpacks  bg-white w-1/5">
+        <h2 className="text-3xl m-2 text-center">Sleep Gear</h2>
+        {sleepItems.length &&
+          sleepItems.map((sleepItem) => (
+            <SleepItemDetails key={sleepItem._id} sleepItem={sleepItem} />
+          ))}
       </div>
     </React.Fragment>
   );

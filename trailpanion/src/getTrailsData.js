@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = "http://api.openweathermap.org/geo/1.0/direct?";
-const apiKey = "744e1e7aabb5c8deb215ca4cfd8afa8b";
+const apiKey = "93a41f94d59e95525716fb821ed543fc";
 
 export const getTrailsData = async (props) => {
   try {

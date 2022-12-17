@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 import ShelterDetails from "./ShelterDetails";
-import CreateShelterForm from "./CreateShelterForm";
 
 const SheltersList = () => {
   const { gear, dispatch } = useGearContext();
@@ -23,16 +22,12 @@ const SheltersList = () => {
   }, [dispatch]);
   return (
     <React.Fragment>
-      <div className="flex justify-evenly">
-        <CreateShelterForm />
-
-        <div className="shelters">
-          <h2 className="text-xl m-2">Shelter</h2>
-          {shelters.length &&
-            shelters.map((shelter) => (
-              <ShelterDetails key={shelter._id} shelter={shelter} />
-            ))}
-        </div>
+      <div className="shelters  bg-white w-1/5">
+        <h2 className="text-3xl m-2 text-center">Shelter</h2>
+        {shelters.length &&
+          shelters.map((shelter) => (
+            <ShelterDetails key={shelter._id} shelter={shelter} />
+          ))}
       </div>
     </React.Fragment>
   );
