@@ -4,6 +4,7 @@ import { useGearContext } from "../hooks/useGearContext";
 
 const FootwearDetails = ({ footwear }) => {
   const { dispatch } = useGearContext();
+
   const handleClick = async () => {
     const response = await fetch("/api/footwears/" + footwear._id, {
       method: "DELETE",

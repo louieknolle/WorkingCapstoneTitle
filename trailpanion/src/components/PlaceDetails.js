@@ -1,19 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-
-// const styles = {
-//   img: {
-//     width: "25%",
-//     height: "15%",
-//   },
-// };
+import { useGearContext } from "../hooks/useGearContext";
 
 const PlaceDetails = (props) => {
+  const [favoritedStatus, setFavoritedStatus] = useState(false);
+  const { dispatch } = useGearContext();
   const location = useLocation();
   const trail =
     !!location && !!location.state && location.state.trail
       ? location.state.trail
       : null;
+  const { name } = trail.name;
+  const { trailLocation } = [trail.city, trail.state];
+  const { description } = trail.description;
+  const { directions } = trail.directions;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const favoritedTrail = { name, trailLocation, description, directions };
+
+    const response = await fetch("/api/favoritedTrails", {
+      method: "POST",
+      body: JSON.stringify(favoritedTrail),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
+
+    // if (!response.ok) {
+    //   setError(json.error);
+    // }
+    if (response.ok) {
+      dispatch({
+        gearType: "favoritedTrails",
+        type: "CREATE_GEAR",
+        payload: json,
+      });
+      setFavoritedStatus(true);
+    }
+  };
 
   return (
     <section className="container  bg-midnightBlue">
@@ -21,9 +48,22 @@ const PlaceDetails = (props) => {
         <Link to="/" state={location.state} className="hover:underline">
           Back to results
         </Link>
-        <button className="text-xl text-springGreen mt-2 hover:underline">
-          Save to favorites
-        </button>
+        <div>
+          <p className="text-xl text-springGreen mt-2">Add to faves</p>
+
+          {!favoritedStatus ? (
+            <span
+              class="material-symbols-outlined cursor-pointer"
+              onClick={handleSubmit}
+            >
+              heart_plus
+            </span>
+          ) : (
+            <span className="material-symbols-outlined">
+              <span class="material-symbols-outlined">library_add_check</span>
+            </span>
+          )}
+        </div>
       </div>
       <h1 className="text-center text-4xl text-springGreen mt-8 border-2 border-springGreen p-6">
         <span className="p-2 border-2 border-springGreen bg-springGreen text-midnightBlue">

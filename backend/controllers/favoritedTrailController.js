@@ -31,16 +31,16 @@ const createFavoritedTrail = async (req, res) => {
 
   let emptyFields = [];
 
-  if (!brand) {
+  if (!name) {
     emptyFields.push("name");
   }
-  if (!model) {
+  if (!location) {
     emptyFields.push("location");
   }
-  if (!weight) {
+  if (!description) {
     emptyFields.push("description");
   }
-  if (!capacity) {
+  if (!directions) {
     emptyFields.push("directions");
   }
   if (emptyFields.length > 0) {

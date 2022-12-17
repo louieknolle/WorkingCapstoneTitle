@@ -6,6 +6,7 @@ const backpackRoutes = require("./routes/backpacks");
 const sleepItemRoutes = require("./routes/sleepItems");
 const shelterRoutes = require("./routes/shelters");
 const footwearRoutes = require("./routes/footwears");
+const favoritedTrailRoutes = require("./routes/favoritedTrails");
 
 // express app
 const app = express();
@@ -23,7 +24,7 @@ app.use("/api/backpacks", backpackRoutes);
 app.use("/api/sleepItems", sleepItemRoutes);
 app.use("/api/shelters", shelterRoutes);
 app.use("/api/footwears", footwearRoutes);
-
+app.use("/api/favoritedTrails", favoritedTrailRoutes);
 // connect to db
 mongoose
   .connect(process.env.MONGO_URL)

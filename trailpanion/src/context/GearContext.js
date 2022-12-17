@@ -31,14 +31,12 @@ export const gearReducer = (state, action) => {
             action.gearType === "sleepItems"
               ? [action.payload, ...state.gear.sleepItems]
               : [...state.gear.sleepItems],
+          favoritedTrails:
+            action.gearType === "favoritedTrails"
+              ? [action.payload, ...state.gear.sleepItems]
+              : [...state.gear.sleepItems],
         },
       };
-    // case "CREATE_GEAR":
-    //   state.gear[action.gearType] = [
-    //     action.payload,
-    //     ...state.gear[action.gearType],
-    //   ];
-    //   return { ...state };
 
     case "DELETE_GEAR":
       state.gear[action.gearType] = state.gear[action.gearType].filter(
@@ -58,6 +56,7 @@ export const GearContextProvider = ({ children }) => {
       shelters: [],
       footwears: [],
       sleepItems: [],
+      favoritedTrails: [],
     },
   });
 

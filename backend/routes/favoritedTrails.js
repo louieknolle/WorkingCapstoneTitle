@@ -1,27 +1,27 @@
 const express = require("express");
 const {
-  getFavoritedTrailss,
+  getFavoritedTrail,
   getFavoritedTrails,
-  createFavoritedTrails,
-  deleteFavoritedTrails,
-  updateFavoritedTrails,
-} = require("../controllers/favoritedTrailsController");
+  createFavoritedTrail,
+  deleteFavoritedTrail,
+  updateFavoritedTrail,
+} = require("../controllers/favoritedTrailController");
 
 const router = express.Router();
 
 // GET all FavoritedTrailss
-router.get("/", getFavoritedTrailss);
+router.get("/", getFavoritedTrails);
 
 // GET a single FavoritedTrails
-router.get("/:id", getFavoritedTrails);
+router.get("/:id", getFavoritedTrail);
 
 // POST a new FavoritedTrails
-router.post("/", createFavoritedTrails);
+router.post("/", createFavoritedTrail);
 
 // DELETE a FavoritedTrails
-router.delete("/:id", deleteFavoritedTrails);
+router.delete("/:id", deleteFavoritedTrail);
 
 // UPDATE a FavoritedTrails
-router.patch("/:id", updateFavoritedTrails);
+router.patch("/:id", updateFavoritedTrail);
 
 module.exports = router;
