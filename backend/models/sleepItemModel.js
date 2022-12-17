@@ -13,7 +13,7 @@ const sleepItemSchema = new Schema(
       required: true,
     },
     kind: {
-      type: string,
+      type: String,
       required: true,
     },
     weight: {
