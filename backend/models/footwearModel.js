@@ -17,7 +17,7 @@ const footwearSchema = new Schema(
       required: true,
     },
     waterproof: {
-      type: Boolean,
+      type: String,
       required: true,
     },
   },

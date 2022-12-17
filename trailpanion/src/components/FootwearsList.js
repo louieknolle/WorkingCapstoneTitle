@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 import FootwearDetails from "./FootwearDetails";
-import CreateFootwearForm from "./CreatefootwearForm";
+import CreateFootwearForm from "./CreateFootwearForm";
 
 const FootwearsList = () => {
   const { gear, dispatch } = useGearContext();
@@ -28,12 +28,11 @@ const FootwearsList = () => {
         <CreateFootwearForm />
 
         <div className="footwears">
-          <h2 className="text-4xl m-2">footwears</h2>
-          {footwears.length
-            ? footwears.map((footwear) => (
-                <FootwearDetails key={footwear._id} footwear={footwear} />
-              ))
-            : null}
+          <h2 className="text-4xl m-2">Footwear</h2>
+          {footwears.length &&
+            footwears.map((footwear) => (
+              <FootwearDetails key={footwear._id} footwear={footwear} />
+            ))}
         </div>
       </div>
     </React.Fragment>

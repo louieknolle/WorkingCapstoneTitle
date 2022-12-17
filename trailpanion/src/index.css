@@ -28,17 +28,6 @@ header {
   height: 10%;
 }
 
-/* 
-.sidebarStyle {
-  display: inline-block;
-  position: absolute;
-  top: 7%;
-  left: 0;
-  margin: 12px;
-  background-color: #404040;
-  color: #efefef;
-  z-index: 1 !important;
-  padding: 6px;
-  font-weight: bold;
-  opacity: 0.6;
-} */
+.error {
+  border-color: red;
+}
