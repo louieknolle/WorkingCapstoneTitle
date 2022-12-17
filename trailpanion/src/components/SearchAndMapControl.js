@@ -1,62 +1,34 @@
 import SearchForm from "./SearchForm";
 import HomeMap from "./HomeMap";
 import ResultsMap from "./ResultsMap";
-import React, { useState } from "react";
+import React from "react";
 import TrailResults from "./TrailResults";
-import { getTrailsData } from "../getTrailsData";
-import { useLocation } from "react-router-dom";
+import { getTrailsList, getCoordinates } from "../data/mapsSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { clearTrailsList } from '../data/mapsSlice'
 
 const SearchAndMapControl = () => {
-  const location = useLocation();
-  const [userData, setUserData] = useState(
-    !!location && !!location.state && location.state.userData
-      ? location.state.userData
-      : null
-  );
-  const [results, setResults] = useState(
-    !!location && !!location.state && location.state.trailsList
-      ? location.state.trailsList
-      : []
-  );
-  const [activity, setActivity] = useState(
-    !!location && !!location.state && location.state.activity
-      ? location.state.activity
-      : null
-  );
+  const dispatch = useDispatch();
+  const trailsList = useSelector((state) => state.maps.trailsList)
 
-  const onSubmitSearch = async (userInput) => {
-    const trailData = await getTrailsData(userInput);
-    const trailDataArray = Object.values(trailData.data);
-    console.log({ trailData });
-    const latLong = {
-      lat: trailData.coordinates.data[0].lat,
-      lon: trailData.coordinates.data[0].lon,
-    };
-    setUserData(latLong);
-    setResults(trailDataArray);
-    setActivity(userInput.activity);
+  const onSubmitSearch = async ({city, state, activity}) => {
+    const { payload } = await dispatch(getCoordinates({city, state}))
+    dispatch(getTrailsList({coordinates: payload, activity}));
   };
-
   return (
     <React.Fragment>
       <div
         id="homeSideBar"
         className="flex flex-col z-10 absolute top-0 left-0 bg-midnightBlue text-springGreen shadow-lg p-1 "
       >
-        {results.length > 0 ? (
+        {trailsList.length > 0 ? (
           <>
-            <TrailResults
-              trailsList={results}
-              userData={userData}
-              activity={activity}
-            />
+            <TrailResults />
             <div className="flex justify-center">
               <button
                 className="border-2 p-2 bg-white rounded-md text-center m-auto"
                 onClick={() => {
-                  setUserData(null);
-                  setResults([]);
-                  setActivity(null);
+                  dispatch(clearTrailsList())
                 }}
               >
                 Back to search
@@ -68,8 +40,8 @@ const SearchAndMapControl = () => {
         )}
       </div>
       <div className="">
-        {results.length > 0 ? (
-          <ResultsMap searchPoint={userData} results={results} />
+        {trailsList.length > 0 ? (
+          <ResultsMap />
         ) : (
           <HomeMap />
         )}
