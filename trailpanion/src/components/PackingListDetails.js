@@ -22,24 +22,24 @@ const PackingListDetails = ({ packingList }) => {
     }
   };
 
-  console.log(packingList.list_items);
-
-  const itemsWeightArray = packingList.list_items.map((item) => {
+  const itemsWeightArray = packingList?.list_items?.map((item) => {
     return parseInt(item.weight);
   });
 
   console.log(itemsWeightArray);
 
   useEffect(() => {
-    itemsWeightArray.map((itemWeight) =>
-      setPackWeight(packWeight + itemWeight)
-    );
-  }, []);
+    let sum = 0;
+    for (let i = 0; i < itemsWeightArray?.length; i++) {
+      sum += itemsWeightArray[i];
+    }
+    setPackWeight(sum);
+  }, [itemsWeightArray]);
 
   return (
     <div
       id="packingListDetails"
-      className="p-2 flex flex-row justify-between items-center border-t flex flex-col justify center"
+      className="p-2 justify-between items-center border-t flex flex-col justify center"
     >
       <div className="flex justify-between">
         <h4 className="text-2xl">{packingList.list_name}</h4>
@@ -50,12 +50,12 @@ const PackingListDetails = ({ packingList }) => {
           delete
         </span>
       </div>
-      {packingList.list_items.map((listItem) => (
+      {packingList?.list_items?.map((listItem) => (
         <p key={listItem._id} className="text-xl border-top">
           {listItem.brand} {listItem.model}
         </p>
       ))}
-      <p>Total weight: {packWeight}</p>
+      <p>Total weight: {packWeight} g</p>
     </div>
   );
 };

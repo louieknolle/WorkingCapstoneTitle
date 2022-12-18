@@ -10,7 +10,13 @@ const PackingListsList = () => {
 
   useEffect(() => {
     const fetchPackingLists = async () => {
-      const response = await fetch("/api/packingLists");
+      const response = await fetch("/api/packingLists", {
+        method: "GET",
+        // body: JSON.stringify(),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const json = await response.json();
 
       if (response.ok) {

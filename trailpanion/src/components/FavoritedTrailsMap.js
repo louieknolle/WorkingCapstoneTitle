@@ -19,7 +19,9 @@ const FavoritedTrailsMap = ({ favoritedTrails }) => {
 
       //   Create default markers
       favoritedTrails.map((favorite) =>
-        new mapboxgl.Marker().setLngLat([favorite.lon, favorite.lat]).addTo(map)
+        new mapboxgl.Marker()
+          .setLngLat([favorite?.lon, favorite?.lat])
+          .addTo(map)
       );
 
       // Add navigation control (the +/- zoom buttons)

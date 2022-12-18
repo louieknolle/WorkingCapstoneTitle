@@ -29,7 +29,7 @@ const PackingListsHome = () => {
   return (
     <div>
       <h1 className="text-3xl text-center">Packing Lists</h1>
-      <div className="bg-white overflow-y-auto flex flex-col justify-center z-10 absolute top-1/3 left-1 shadow-lg rounded-lg">
+      <div className="bg-white overflow-y-auto flex flex-row flex-wrap justify-center z-10 absolute  left-1 shadow-lg rounded-lg">
         <PackingListsList packingLists={packingLists} />
       </div>
     </div>
