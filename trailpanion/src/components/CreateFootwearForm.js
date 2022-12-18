@@ -42,42 +42,40 @@ const CreateFootwearForm = ({ onSubmitted }) => {
   };
 
   return (
-    <form className="create flex flex-col" onSubmit={handleSubmit}>
-      <h3>Add New Footwear</h3>
-
-      <label>Brand:</label>
+    <form className="create flex flex-col text-xl" onSubmit={handleSubmit}>
       <input
+        placeholder="Brand"
         type="text"
         onChange={(e) => setBrand(e.target.value)}
         value={brand}
-        className={emptyFields.includes("brand") ? "border-red-600" : ""}
+        className="mt-8 p-1"
       />
-      <label>Model:</label>
       <input
+        placeholder="Model"
         type="text"
         onChange={(e) => setModel(e.target.value)}
         value={model}
-        className={emptyFields.includes("model") ? "border-red-600" : ""}
+        className="mt-8 p-1"
       />
 
-      <label>style:</label>
       <input
+        placeholder="Style"
         type="text"
         onChange={(e) => setStyle(e.target.value)}
         value={style}
-        className={emptyFields.includes("style") ? "error" : ""}
+        className="mt-8 p-1"
       />
 
-      <label>Waterproof:</label>
       <input
+        placeholder="Waterproof? Y/N"
         type="string"
         onChange={(e) => setWaterproof(e.target.value)}
         value={waterproof}
-        className={emptyFields.includes("waterproof") ? "error" : ""}
+        className="mt-8 p-1"
       />
 
-      <button className="m-2 bg-springGreen ">Add footwear</button>
-      {error && <div className="error">{error}</div>}
+      <button className="mt-8 bg-springGreen w-1/2 m-auto">Add</button>
+      {error && <div className="error text-white m-auto">{error}</div>}
     </form>
   );
 };

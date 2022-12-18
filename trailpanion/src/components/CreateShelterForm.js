@@ -44,50 +44,48 @@ const CreateShelterForm = ({ onSubmitted }) => {
   };
 
   return (
-    <form className="create flex flex-col" onSubmit={handleSubmit}>
-      <h3>Add New Shelter</h3>
-
-      <label>Brand:</label>
+    <form className="create flex flex-col text-xl" onSubmit={handleSubmit}>
       <input
+        placeholder="Brand"
         type="text"
         onChange={(e) => setBrand(e.target.value)}
         value={brand}
-        className={emptyFields.includes("brand") ? "border-red-600" : ""}
+        className="mt-8 p-1"
       />
-      <label>Model:</label>
       <input
+        placeholder="Model"
         type="text"
         onChange={(e) => setModel(e.target.value)}
         value={model}
-        className={emptyFields.includes("model") ? "border-red-600" : ""}
+        className="mt-8 p-1"
       />
 
-      <label>weight:</label>
       <input
+        placeholder="Weight (in g)"
         type="number"
         onChange={(e) => setWeight(e.target.value)}
         value={weight}
-        className={emptyFields.includes("weight") ? "error" : ""}
+        className="mt-8 p-1"
       />
 
-      <label>capacity:</label>
       <input
+        placeholder="Capacity (# of people)"
         type="number"
         onChange={(e) => setCapacity(e.target.value)}
         value={capacity}
-        className={emptyFields.includes("capacity") ? "error" : ""}
+        className="mt-8 p-1"
       />
 
-      <label>Season:</label>
       <input
+        placeholder="Season"
         type="text"
         onChange={(e) => setSeason(e.target.value)}
         value={season}
-        className={emptyFields.includes("season") ? "border-red-600" : ""}
+        className="mt-8 p-1"
       />
 
-      <button className="m-2 bg-springGreen ">Add shelter</button>
-      {error && <div className="error">{error}</div>}
+      <button className="mt-8 m-auto bg-springGreen w-1/2">Add</button>
+      {error && <div className="error text-white m-auto">{error}</div>}
     </form>
   );
 };

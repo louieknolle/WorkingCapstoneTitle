@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import FavoritedTrailsList from "./favoritedTrailsList";
-// import ResultsMap from "./ResultsMap";
+import FavoritedTrailsList from "./FavoritedTrailsList";
+import FavoritedTrailsMap from "./FavoritedTrailsMap";
 import { useGearContext } from "../hooks/useGearContext";
 
 const FavoritedTrailsHome = () => {
   const { gear, dispatch } = useGearContext();
 
   const favoritedTrails = gear.favoritedTrails;
+  console.log({ context: favoritedTrails });
 
   useEffect(() => {
     const fetchFavoritesList = async () => {
@@ -28,9 +29,13 @@ const FavoritedTrailsHome = () => {
 
   return (
     <div>
-      <h1>Favoritez</h1>
-      <FavoritedTrailsList favoritedTrails={favoritedTrails} />
-      {/* <ResultsMap favoritedTrails={favoritedTrails} /> */}
+      <div className="w-1/5 bg-white height-1/2 overflow-y-auto flex flex-col justify-center z-10 absolute top-1/3 left-1 shadow-lg rounded-lg">
+        <h1 className="text-3xl text-center">Favorite Places</h1>
+        <FavoritedTrailsList favoritedTrails={favoritedTrails} />
+      </div>
+      <div className="w-4/5">
+        <FavoritedTrailsMap favoritedTrails={favoritedTrails} />
+      </div>
     </div>
   );
 };

@@ -1,28 +1,25 @@
-// NEED TO TRY WITH SETTING CENTER OF MAP W/ FAVORITEDTRAILS COORDINATES
-
 import React, { useRef, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoibG91aXNrbm9sbGUiLCJhIjoiY2xhMTh0OXV2MDU3NTNvbDUzenNxMGhyMiJ9.1A_ch-Oku2ehIIJ6uoD_iQ";
 
-const ResultsMap = ({ searchPoint, results }) => {
-  // const { searchPoint, results} = props;
+const FavoritedTrailsMap = ({ favoritedTrails }) => {
   const mapContainerRef = useRef(null);
 
   // Initialize map when component mounts
   useEffect(() => {
-    if (!!searchPoint && results.length > 0) {
+    if (favoritedTrails) {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: "mapbox://styles/mapbox/outdoors-v11",
-        center: [searchPoint.lon, searchPoint.lat],
-        zoom: 9,
+        center: [-99.4805, 41.1983],
+        zoom: 3,
       });
 
       //   Create default markers
-      results.map((result) =>
-        new mapboxgl.Marker().setLngLat([result.lon, result.lat]).addTo(map)
+      favoritedTrails.map((favorite) =>
+        new mapboxgl.Marker().setLngLat([favorite.lon, favorite.lat]).addTo(map)
       );
 
       // Add navigation control (the +/- zoom buttons)
@@ -31,9 +28,9 @@ const ResultsMap = ({ searchPoint, results }) => {
       // Clean up on unmount
       return () => map.remove();
     }
-  }, [results, searchPoint.lat, searchPoint.long, searchPoint]);
+  }, [favoritedTrails]);
 
   return <div className="map-container shadow-xl" ref={mapContainerRef} />;
 };
 
-export default ResultsMap;
+export default FavoritedTrailsMap;

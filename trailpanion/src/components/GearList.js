@@ -8,11 +8,11 @@ const GearList = () => {
   return (
     <React.Fragment>
       <div className="gearList w-full flex flex-col justify-evenly">
-        <div className="flex justify-evenly">
+        <div className="flex justify-evenly mt-8">
           <BackpacksList />
           <FootwearsList />
         </div>
-        <div className="flex justify-evenly">
+        <div className="flex justify-evenly mt-8">
           <SheltersList />
           <SleepItemsList />
         </div>

@@ -42,42 +42,40 @@ const CreateBackpackForm = ({ onSubmitted }) => {
   };
 
   return (
-    <form className="create flex flex-col" onSubmit={handleSubmit}>
-      <h3>Add a New backpack</h3>
-
-      <label>Brand:</label>
+    <form className="create flex flex-col text-xl" onSubmit={handleSubmit}>
       <input
+        placeholder="Brand"
         type="text"
         onChange={(e) => setBrand(e.target.value)}
         value={brand}
-        className={emptyFields.includes("brand") ? "border-red-600" : ""}
+        className="mt-8 p-1"
       />
-      <label>Model:</label>
       <input
+        placeholder="Model"
         type="text"
         onChange={(e) => setModel(e.target.value)}
         value={model}
-        className={emptyFields.includes("model") ? "border-red-600" : ""}
+        className="mt-8 p-1"
       />
 
-      <label>Weight (in g):</label>
       <input
+        placeholder="Weight (in g)"
         type="number"
         onChange={(e) => setWeight(e.target.value)}
         value={weight}
-        className={emptyFields.includes("weight") ? "error" : ""}
+        className="mt-8 p-1"
       />
 
-      <label>Storage capacity(in L):</label>
       <input
+        placeholder="Volume (in L)"
         type="number"
         onChange={(e) => setCapacity(e.target.value)}
         value={capacity}
-        className={emptyFields.includes("capacity") ? "error" : ""}
+        className="mt-8 p-1"
       />
 
-      <button className="m-2 bg-springGreen ">Add backpack</button>
-      {error && <div className="error">{error}</div>}
+      <button className="mt-8 bg-springGreen w-1/2 m-auto">Add</button>
+      {error && <div className="error text-white m-auto">{error}</div>}
     </form>
   );
 };

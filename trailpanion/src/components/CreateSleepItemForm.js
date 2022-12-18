@@ -43,41 +43,41 @@ const CreatesleepItemForm = ({ onSubmitted }) => {
 
   return (
     <form className="create flex flex-col" onSubmit={handleSubmit}>
-      <h3>Add Sleeping gear</h3>
-
-      <label>Brand:</label>
       <input
+        placeholder="Brand"
         type="text"
         onChange={(e) => setBrand(e.target.value)}
         value={brand}
-        className={emptyFields.includes("brand") ? "border-red-600" : ""}
+        className="mt-8 p-1"
       />
-      <label>Model:</label>
       <input
+        placeholder="Model"
         type="text"
         onChange={(e) => setModel(e.target.value)}
         value={model}
-        className={emptyFields.includes("model") ? "border-red-600" : ""}
+        className="mt-8 p-1"
       />
 
-      <label>Type of sleep gear:</label>
       <input
-        type="number"
+        placeholder="Type (e.g. ground pad)"
+        type="text"
         onChange={(e) => setKind(e.target.value)}
         value={kind}
-        className={emptyFields.includes("kind") ? "error" : ""}
+        className="mt-8 p-1"
       />
 
-      <label>weight:</label>
       <input
+        placeholder="Weight (in g)"
         type="number"
         onChange={(e) => setWeight(e.target.value)}
         value={weight}
-        className={emptyFields.includes("weight") ? "error" : ""}
+        className="mt-8 p-1"
       />
 
-      <button className="m-2 bg-springGreen ">Add sleepItem</button>
-      {error && <div className="error">{error}</div>}
+      <button className="mt-8 m-auto w-1/2 bg-springGreen text-white">
+        Add
+      </button>
+      {error && <div className="error text-white m-auto">{error}</div>}
     </form>
   );
 };

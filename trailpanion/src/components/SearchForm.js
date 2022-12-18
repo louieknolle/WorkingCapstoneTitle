@@ -17,6 +17,7 @@ const SearchForm = (props) => {
         id="searchForm"
         className="flex flex-col justify-center z-10 absolute top-0 bg-midnightBlue text-springGreen shadow-lg h-full p-1 w-full"
       >
+        <h1 className="self-center text-2xl">Find new trails</h1>
         <input
           required
           className="border-2 text-midnightBlue border-springGreen m-3"
@@ -93,7 +94,10 @@ const SearchForm = (props) => {
           <option value="snow sports">Snow sports</option>
           <option value="mountain biking">Mountain biking</option>
         </select>
-        <button className="border-2 p-2 m-2 bg-white rounded-md" type="submit">
+        <button
+          className="border-2 p-2 m-2 bg-white rounded-md text-midnightBlue border-springGreen w-1/2 self-center"
+          type="submit"
+        >
           Search
         </button>
       </form>

@@ -16,33 +16,35 @@ const MamaForm = () => {
     setSelectedForm(value);
   };
   return (
-    <div className=" flex flex-col mt-4 p-4">
-      <h3 className="text-3xl text-center ">Add New Gear</h3>
+    <div className=" flex flex-col mt-4 p-4 text-white">
+      <h3 className="text-3xl text-center ">
+        Add New {selectedForm ? selectedForm : "Gear"}
+      </h3>
 
       {!selectedForm && (
         <select
           onChange={onChange}
           name="gearCategory"
           required
-          className="m-3 text-midnightBlue border-2 border-springGreen"
+          className="m-3 text-midnightBlue border-2 border-springGreen text-xl"
         >
           <option value="">Select category</option>
-          <option value="backpacks">Backpacks</option>
-          <option value="footwears">Footwear</option>
-          <option value="sleepItems">Sleep Gear</option>
-          <option value="shelters">Shelters</option>
+          <option value="Backpack">Backpack</option>
+          <option value="Footwear">Footwear</option>
+          <option value="Sleep Item">Sleep Item</option>
+          <option value="Shelter">Shelters</option>
         </select>
       )}
-      {selectedForm === "backpacks" && (
+      {selectedForm === "Backpack" && (
         <CreateBackpackForm onSubmitted={onSubmitted} />
       )}
-      {selectedForm === "footwears" && (
+      {selectedForm === "Footwear" && (
         <CreateFootwearForm onSubmitted={onSubmitted} />
       )}
-      {selectedForm === "sleepItems" && (
+      {selectedForm === "Sleep Item" && (
         <CreateSleepItemForm onSubmitted={onSubmitted} />
       )}
-      {selectedForm === "shelters" && (
+      {selectedForm === "Shelter" && (
         <CreateShelterForm onSubmitted={onSubmitted} />
       )}
     </div>

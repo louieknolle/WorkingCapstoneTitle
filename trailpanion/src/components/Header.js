@@ -13,7 +13,9 @@ const Header = () => {
           <div className="px-2">
             <Link to="/gearList">Gear Inventory</Link>
           </div>
-          <div className="px-2">Packing Lists</div>
+          <div className="px-2">
+            <Link to="/favoritedTrails">Favorite Jaunts</Link>
+          </div>
           <div className="flex flex-row">
             <p className="px-2">Sign In</p>
             <p className="px-2">Sign Up</p>

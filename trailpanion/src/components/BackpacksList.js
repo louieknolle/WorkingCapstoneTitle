@@ -22,12 +22,13 @@ const BackpacksList = () => {
   }, [dispatch]);
   return (
     <React.Fragment>
-      <div className="backpacks bg-white w-1/5">
+      <div className="backpacks bg-white w-1/5 h-72 overflow-y-auto rounded drop-shadow-md border-b">
         <h2 className="text-3xl m-2 text-center">Backpacks</h2>
-        {backpacks.length &&
-          backpacks.map((backpack) => (
-            <BackpackDetails key={backpack._id} backpack={backpack} />
-          ))}
+        {backpacks.length
+          ? backpacks.map((backpack) => (
+              <BackpackDetails key={backpack._id} backpack={backpack} />
+            ))
+          : ""}
       </div>
     </React.Fragment>
   );

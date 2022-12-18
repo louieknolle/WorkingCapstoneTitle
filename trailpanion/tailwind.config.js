@@ -10,6 +10,7 @@ module.exports = {
       midnightBlue: "#226385",
       springGreen: "#01ff7f",
       white: "#ffffff",
+      red: "#F11A1A",
     },
   },
   plugins: [],

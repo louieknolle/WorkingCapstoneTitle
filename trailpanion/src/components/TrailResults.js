@@ -8,7 +8,10 @@ const TrailResults = (props) => {
       <h1 className="text-2xl my-5 text-center">Destinations</h1>
       <ul>
         {trailsList.map((trail) => (
-          <li key={trail.place_id} className="text-center hover:underline my-4">
+          <li
+            key={trail.place_id}
+            className="text-center hover:underline text-xl my-4"
+          >
             <Link
               to="/placeDetails"
               state={{ trail, trailsList, activity, userData }}

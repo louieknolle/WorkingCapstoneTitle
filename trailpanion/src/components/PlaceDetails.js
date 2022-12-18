@@ -11,7 +11,19 @@ const PlaceDetails = (props) => {
       ? location.state.trail
       : null;
 
-  // const favoritedTrail = { trail.name, site, description, directions };
+  const {
+    activities,
+    city,
+    country,
+    description,
+    directions,
+    lat,
+    lon,
+    name,
+    parent_id,
+    place_id,
+    state,
+  } = trail;
   console.log(trail);
 
   const handleSubmit = async (e) => {
@@ -19,7 +31,19 @@ const PlaceDetails = (props) => {
 
     const response = await fetch("/api/favoritedTrails", {
       method: "POST",
-      body: JSON.stringify(trail),
+      body: JSON.stringify({
+        activities,
+        city,
+        country,
+        description,
+        directions,
+        lat,
+        lon,
+        name,
+        parent_id,
+        place_id,
+        state,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -45,21 +69,19 @@ const PlaceDetails = (props) => {
         <Link to="/" state={location.state} className="hover:underline">
           Back to results
         </Link>
-        <div>
-          <p className="text-xl text-springGreen mt-2">Add to faves</p>
+        <div className="flex flex-row justify-between content-center">
+          <p className="text-xl text-springGreen center-self">Add to faves</p>
 
           {!favoritedStatus ? (
             <span
-              className="material-symbols-outlined cursor-pointer"
+              className="material-symbols-outlined cursor-pointer self-center ml-2"
               onClick={handleSubmit}
             >
               heart_plus
             </span>
           ) : (
-            <span className="material-symbols-outlined">
-              <span className="material-symbols-outlined">
-                library_add_check
-              </span>
+            <span className="material-symbols-outlined self-center ml-2">
+              library_add_check
             </span>
           )}
         </div>
@@ -85,12 +107,6 @@ const PlaceDetails = (props) => {
             </li>
           </div>
         </ul>
-
-        {/* <img
-          src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/babbling-brook-rick-seymour.jpg"
-          alt="a babbling brook"
-          style={styles.img}
-        /> */}
       </article>
     </section>
   );

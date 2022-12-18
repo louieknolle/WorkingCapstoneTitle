@@ -52,7 +52,7 @@ const SearchAndMapControl = () => {
             />
             <div className="flex justify-center">
               <button
-                className="border-2 p-2 bg-white rounded-md text-center m-auto"
+                className="border-2 p-2 bg-white rounded-md text-center m-auto text-midnightBlue border-springGreen"
                 onClick={() => {
                   setUserData(null);
                   setResults([]);

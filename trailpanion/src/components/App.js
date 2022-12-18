@@ -7,6 +7,7 @@ import TrailResults from "./TrailResults";
 import ResultsMap from "./ResultsMap";
 // import GearList from "./GearList";
 import GearInventoryHome from "./GearInventoryHome";
+import FavoritedTrailsHome from "./FavoritedTrailsHome";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="placeDetails" element={<PlaceDetails />} />
           <Route path="trailResults" element={<TrailResults />} />
           <Route path="gearList" element={<GearInventoryHome />} />
+          <Route path="favoritedTrails" element={<FavoritedTrailsHome />} />
         </Route>
       </Routes>
     </BrowserRouter>
