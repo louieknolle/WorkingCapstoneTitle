@@ -24,10 +24,11 @@ const SleepItemsList = () => {
     <React.Fragment>
       <div className="backpacks  bg-white w-1/5">
         <h2 className="text-3xl m-2 text-center">Sleep Gear</h2>
-        {sleepItems.length &&
-          sleepItems.map((sleepItem) => (
-            <SleepItemDetails key={sleepItem._id} sleepItem={sleepItem} />
-          ))}
+        {sleepItems.length
+          ? sleepItems.map((sleepItem) => (
+              <SleepItemDetails key={sleepItem._id} sleepItem={sleepItem} />
+            ))
+          : 0}
       </div>
     </React.Fragment>
   );

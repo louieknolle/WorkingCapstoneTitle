@@ -25,10 +25,11 @@ const FootwearsList = () => {
     <React.Fragment>
       <div className="footwears  bg-white w-1/5">
         <h2 className="text-3xl m-2 text-center">Footwear</h2>
-        {footwears.length &&
-          footwears.map((footwear) => (
-            <FootwearDetails key={footwear._id} footwear={footwear} />
-          ))}
+        {footwears.length
+          ? footwears.map((footwear) => (
+              <FootwearDetails key={footwear._id} footwear={footwear} />
+            ))
+          : ""}
       </div>
     </React.Fragment>
   );
