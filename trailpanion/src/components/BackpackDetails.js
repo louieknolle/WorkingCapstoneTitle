@@ -16,6 +16,10 @@ const BackpackDetails = ({ backpack, onSubmitted }) => {
     }
   };
 
+  const handleAddToList = () => {
+    onSubmitted(backpack);
+  };
+
   return (
     <div
       id="backpackDetails"
@@ -27,7 +31,7 @@ const BackpackDetails = ({ backpack, onSubmitted }) => {
       {!!onSubmitted ? (
         <span
           className="material-symbols-outlined cursor-pointer"
-          onClick={onSubmitted}
+          onClick={handleAddToList}
         >
           add_circle
         </span>

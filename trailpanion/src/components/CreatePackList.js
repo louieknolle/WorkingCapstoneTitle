@@ -6,21 +6,24 @@ import SleepItemsList from "./SleepItemsList";
 import { useGearContext } from "../hooks/useGearContext";
 
 const CreatePackList = () => {
-  const [packList, setPackList] = useState([]);
+  const [list_items, setList_items] = useState([]);
   const [error, setError] = useState("");
+  const [list_name, setList_name] = useState("");
   const { dispatch } = useGearContext();
 
   function onSubmitted(newItem) {
-    const newPackList = packList.concat(newItem);
-    setPackList(newPackList);
+    const newPackList = list_items.concat(newItem);
+    setList_items(newPackList);
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const newList = { list_name, list_items };
+
     const response = await fetch("/api/packingLists", {
       method: "POST",
-      body: JSON.stringify(packList),
+      body: JSON.stringify(newList),
       headers: {
         "Content-Type": "application/json",
       },
@@ -34,30 +37,47 @@ const CreatePackList = () => {
       onSubmitted();
       setError(null);
       dispatch({ gearType: "packingList", type: "CREATE_GEAR", payload: json });
+      setList_items([]);
+      setList_name("");
     }
   };
 
-  console.log(packList);
+  console.log({ list_name, list_items });
   return (
     <React.Fragment>
-      <div className="w-1/5 bg-white">
-        {packList.length > 0
-          ? packList.map((item) => <p key={item._id}>{item.model}</p>)
-          : ""}
-        {packList.length > 0 ? (
-          <button onClick={handleSubmit}>Create List</button>
-        ) : (
-          ""
-        )}
-      </div>
-      <div className="gearList w-full flex flex-col justify-evenly">
-        <div className="flex justify-evenly mt-8">
-          <BackpacksList onSubmitted={onSubmitted} />
-          <FootwearsList onSubmitted={onSubmitted} />
+      <div className="flex h-screen">
+        <div className="w-1/5 bg-white flex flex-col justify-start align-center">
+          <h1 className="text-center mt-4 text-3xl">New List</h1>
+          {list_items.length > 0 ? (
+            <input
+              type="text"
+              placeholder="List Name"
+              onChange={(e) => setList_name(e.target.value)}
+              value={list_name}
+            ></input>
+          ) : (
+            ""
+          )}
+          {list_items.length > 0
+            ? list_items.map((item) => <p key={item._id}>{item.model}</p>)
+            : ""}
+          {list_items.length > 0 ? (
+            <button onClick={handleSubmit} className="bg-midnightBlue w-4/5">
+              Create List
+            </button>
+          ) : (
+            ""
+          )}
         </div>
-        <div className="flex justify-evenly mt-8">
-          <SheltersList onSubmitted={onSubmitted} />
-          <SleepItemsList onSubmitted={onSubmitted} />
+        <div className="gearList w-full flex flex-col justify-evenly">
+          <div className="flex justify-evenly mt-2">
+            <BackpacksList onSubmitted={onSubmitted} />
+            <FootwearsList onSubmitted={onSubmitted} />
+          </div>
+          <div className="flex justify-evenly mt-8">
+            <SheltersList onSubmitted={onSubmitted} />
+            <SleepItemsList onSubmitted={onSubmitted} />
+          </div>
         </div>
       </div>
     </React.Fragment>
