@@ -46,28 +46,49 @@ const CreatePackList = () => {
   return (
     <React.Fragment>
       <div className="flex h-screen">
-        <div className="w-1/5 bg-white flex flex-col justify-start align-center">
-          <h1 className="text-center mt-4 text-3xl">New List</h1>
-          {list_items.length > 0 ? (
-            <input
-              type="text"
-              placeholder="List Name"
-              onChange={(e) => setList_name(e.target.value)}
-              value={list_name}
-            ></input>
-          ) : (
-            ""
-          )}
-          {list_items.length > 0
-            ? list_items.map((item) => <p key={item._id}>{item.model}</p>)
-            : ""}
-          {list_items.length > 0 ? (
-            <button onClick={handleSubmit} className="bg-midnightBlue w-4/5">
-              Create List
-            </button>
-          ) : (
-            ""
-          )}
+        <div className="w-1/5 bg-white flex flex-col justify-start align-center text-xl">
+          <div className="flex flex-col">
+            <h1 className="text-center mt-4 text-3xl">New List</h1>
+            <p className=" flex justify-center mt-4">
+              Press
+              <span className="material-symbols-outlined px-2">
+                {" "}
+                add_circle{" "}
+              </span>
+              to add item.
+            </p>
+          </div>
+          <div className="flex flex-col justify-center w-4/5 mt-6 p-2">
+            <div className="mt-4">
+              {list_items.length > 0 ? (
+                <input
+                  type="text"
+                  placeholder="List Name"
+                  onChange={(e) => setList_name(e.target.value)}
+                  value={list_name}
+                />
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="mt-4">
+              {list_items.length > 0
+                ? list_items.map((item) => <p key={item._id}>{item.model}</p>)
+                : ""}
+            </div>
+            <div className="mt-8">
+              {list_items.length > 0 ? (
+                <button
+                  onClick={handleSubmit}
+                  className="bg-midnightBlue w-4/5"
+                >
+                  Create List
+                </button>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
         </div>
         <div className="gearList w-full flex flex-col justify-evenly">
           <div className="flex justify-evenly mt-2">

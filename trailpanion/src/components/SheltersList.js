@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 import ShelterDetails from "./ShelterDetails";
 
-const SheltersList = () => {
+const SheltersList = ({ onSubmitted }) => {
   const { gear, dispatch } = useGearContext();
 
   const shelters = gear.shelters;
@@ -26,7 +26,11 @@ const SheltersList = () => {
         <h2 className="text-3xl m-2 text-center">Shelter</h2>
         {shelters.length
           ? shelters.map((shelter) => (
-              <ShelterDetails key={shelter._id} shelter={shelter} />
+              <ShelterDetails
+                key={shelter._id}
+                shelter={shelter}
+                onSubmitted={onSubmitted}
+              />
             ))
           : ""}
       </div>

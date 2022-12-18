@@ -4,7 +4,6 @@ import BackpackDetails from "./BackpackDetails";
 
 const BackpacksList = ({ onSubmitted }) => {
   const { gear, dispatch } = useGearContext();
-  console.log({ bps: gear.backpacks });
 
   const backpacks = gear.backpacks;
 

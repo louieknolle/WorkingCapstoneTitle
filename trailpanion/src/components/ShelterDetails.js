@@ -1,6 +1,5 @@
 import React from "react";
 import { useGearContext } from "../hooks/useGearContext";
-// import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const ShelterDetails = ({ shelter, onSubmitted }) => {
   const { dispatch } = useGearContext();
@@ -28,10 +27,6 @@ const ShelterDetails = ({ shelter, onSubmitted }) => {
       <h4 className="text-xl">
         {shelter.brand} {shelter.model}
       </h4>
-      {/* <p>
-        <strong>Weight (g): </strong>
-        {Shelter.style}
-      </p> */}
       {!!onSubmitted ? (
         <span
           className="material-symbols-outlined cursor-pointer"

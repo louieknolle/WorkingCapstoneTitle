@@ -1,8 +1,7 @@
 import React from "react";
 import { useGearContext } from "../hooks/useGearContext";
-// import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
-const FootwearDetails = ({ footwear }) => {
+const FootwearDetails = ({ footwear, onSubmitted }) => {
   const { dispatch } = useGearContext();
 
   const handleClick = async () => {
@@ -17,6 +16,10 @@ const FootwearDetails = ({ footwear }) => {
     }
   };
 
+  const handleAddToList = () => {
+    onSubmitted(footwear);
+  };
+
   return (
     <div
       id="footwearDetails"
@@ -25,26 +28,27 @@ const FootwearDetails = ({ footwear }) => {
       <h4 className="text-xl">
         {footwear.brand} {footwear.model}
       </h4>
-      {/* <p>
-        <strong>Weight (g): </strong>
-        {footwear.style}
-      </p> */}
-      <span
-        className="material-symbols-outlined cursor-pointer"
-        onClick={handleClick}
-      >
-        delete
-      </span>
+      {!!onSubmitted ? (
+        <span
+          className="material-symbols-outlined cursor-pointer"
+          onClick={handleAddToList}
+        >
+          add_circle
+        </span>
+      ) : (
+        <span
+          className="material-symbols-outlined cursor-pointer"
+          onClick={handleClick}
+        >
+          delete
+        </span>
+      )}
     </div>
   );
 };
 
 export default FootwearDetails;
 
-// {/* <p>
-//   <strong>Storage capacity (L): </strong>
-//   {backpack.capacity}
-// </p>
 // <p>
 //   {formatDistanceToNow(new Date(backpack.createdAt), { addSuffix: true })}
 // </p> */}

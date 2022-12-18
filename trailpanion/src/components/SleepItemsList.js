@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 import SleepItemDetails from "./SleepItemDetails";
 
-const SleepItemsList = () => {
+const SleepItemsList = ({ onSubmitted }) => {
   const { gear, dispatch } = useGearContext();
 
   const sleepItems = gear.sleepItems;
@@ -11,7 +11,6 @@ const SleepItemsList = () => {
     const fetchSleepItems = async () => {
       const response = await fetch("/api/sleepItems");
       const json = await response.json();
-      // console.log(json);
 
       if (response.ok) {
         dispatch({ gearType: "sleepItems", type: "SET_GEAR", payload: json });
@@ -26,7 +25,11 @@ const SleepItemsList = () => {
         <h2 className="text-3xl m-2 text-center">Sleep Gear</h2>
         {sleepItems.length
           ? sleepItems.map((sleepItem) => (
-              <SleepItemDetails key={sleepItem._id} sleepItem={sleepItem} />
+              <SleepItemDetails
+                key={sleepItem._id}
+                sleepItem={sleepItem}
+                onSubmitted={onSubmitted}
+              />
             ))
           : 0}
       </div>

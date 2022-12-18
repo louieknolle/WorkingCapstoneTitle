@@ -27,9 +27,9 @@ const PackingListsHome = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1 className="text-3xl text-center">Packing Lists</h1>
-      <div className="bg-white overflow-y-auto flex flex-row flex-wrap justify-center z-10 absolute  left-1 shadow-lg rounded-lg">
+    <div className="ml-1/4">
+      <h1 className="text-3xl text-center mt-4 text-white">Packing Lists</h1>
+      <div className="overflow-y-auto flex flex-row flex-wrap justify-center mt-12">
         <PackingListsList packingLists={packingLists} />
       </div>
     </div>

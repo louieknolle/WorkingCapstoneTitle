@@ -28,14 +28,15 @@ const PackingListsList = () => {
   }, [dispatch]);
   return (
     <React.Fragment>
-      <div className="packingLists bg-white overflow-y-auto rounded drop-shadow-md border-b">
-        <h2 className="text-3xl m-2 text-center">Packing List</h2>
+      <div className="packingLists grid gap-4 grid-cols-3 grid-rows-3 m-auto">
         {packingLists.length
           ? packingLists.map((packingList) => (
-              <PackingListDetails
-                key={packingList._id}
-                packingList={packingList}
-              />
+              <div className="rounded drop-shadow-md  bg-white">
+                <PackingListDetails
+                  key={packingList._id}
+                  packingList={packingList}
+                />
+              </div>
             ))
           : ""}
       </div>

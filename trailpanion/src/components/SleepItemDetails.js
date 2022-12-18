@@ -1,8 +1,7 @@
 import React from "react";
 import { useGearContext } from "../hooks/useGearContext";
-// import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
-const SleepItemDetails = ({ sleepItem }) => {
+const SleepItemDetails = ({ sleepItem, onSubmitted }) => {
   const { dispatch } = useGearContext();
   const handleClick = async () => {
     const response = await fetch("/api/sleepItems/" + sleepItem._id, {
@@ -16,6 +15,10 @@ const SleepItemDetails = ({ sleepItem }) => {
     }
   };
 
+  const handleAddToList = () => {
+    onSubmitted(sleepItem);
+  };
+
   return (
     <div
       id="sleepItemDetails"
@@ -24,16 +27,21 @@ const SleepItemDetails = ({ sleepItem }) => {
       <h4 className="text-xl">
         {sleepItem.brand} {sleepItem.model}
       </h4>
-      {/* <p>
-        <strong>Weight (g): </strong>
-        {sleepItem.style}
-      </p> */}
-      <span
-        className="material-symbols-outlined cursor-pointer"
-        onClick={handleClick}
-      >
-        delete
-      </span>
+      {!!onSubmitted ? (
+        <span
+          className="material-symbols-outlined cursor-pointer"
+          onClick={handleAddToList}
+        >
+          add_circle
+        </span>
+      ) : (
+        <span
+          className="material-symbols-outlined cursor-pointer"
+          onClick={handleClick}
+        >
+          delete
+        </span>
+      )}
     </div>
   );
 };
