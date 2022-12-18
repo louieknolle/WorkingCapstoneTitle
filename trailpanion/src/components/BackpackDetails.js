@@ -2,7 +2,7 @@ import React from "react";
 import { useGearContext } from "../hooks/useGearContext";
 // import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
-const BackpackDetails = ({ backpack }) => {
+const BackpackDetails = ({ backpack, onSubmitted }) => {
   const { dispatch } = useGearContext();
   const handleClick = async () => {
     const response = await fetch("/api/backpacks/" + backpack._id, {
@@ -24,16 +24,21 @@ const BackpackDetails = ({ backpack }) => {
       <h4 className="text-xl">
         {backpack.brand} {backpack.model}
       </h4>
-      {/* <p>
-        <strong>Weight (g): </strong>
-        {backpack.weight}
-      </p> */}
-      <span
-        className="material-symbols-outlined cursor-pointer"
-        onClick={handleClick}
-      >
-        delete
-      </span>
+      {!!onSubmitted ? (
+        <span
+          className="material-symbols-outlined cursor-pointer"
+          onClick={onSubmitted}
+        >
+          add_circle
+        </span>
+      ) : (
+        <span
+          className="material-symbols-outlined cursor-pointer"
+          onClick={handleClick}
+        >
+          delete
+        </span>
+      )}
     </div>
   );
 };

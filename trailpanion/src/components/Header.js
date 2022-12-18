@@ -16,10 +16,13 @@ const Header = () => {
           <div className="px-2">
             <Link to="/favoritedTrails">Favorite Jaunts</Link>
           </div>
-          <div className="flex flex-row">
+          <div className="px-2">
+            <Link to="/packingLists">Pack Lists</Link>
+          </div>
+          {/* <div className="flex flex-row">
             <p className="px-2">Sign In</p>
             <p className="px-2">Sign Up</p>
-          </div>
+          </div> */}
         </nav>
       </header>
     </React.Fragment>

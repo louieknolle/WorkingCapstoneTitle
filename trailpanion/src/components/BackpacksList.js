@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useGearContext } from "../hooks/useGearContext";
 import BackpackDetails from "./BackpackDetails";
 
-const BackpacksList = () => {
+const BackpacksList = ({ onSubmitted }) => {
   const { gear, dispatch } = useGearContext();
   console.log({ bps: gear.backpacks });
 
@@ -26,7 +26,11 @@ const BackpacksList = () => {
         <h2 className="text-3xl m-2 text-center">Backpacks</h2>
         {backpacks.length
           ? backpacks.map((backpack) => (
-              <BackpackDetails key={backpack._id} backpack={backpack} />
+              <BackpackDetails
+                key={backpack._id}
+                backpack={backpack}
+                onSubmitted={onSubmitted}
+              />
             ))
           : ""}
       </div>

@@ -8,6 +8,8 @@ import ResultsMap from "./ResultsMap";
 // import GearList from "./GearList";
 import GearInventoryHome from "./GearInventoryHome";
 import FavoritedTrailsHome from "./FavoritedTrailsHome";
+import PackingListsHome from "./PackingListsHome";
+import CreatePackList from "./CreatePackList";
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
           <Route path="trailResults" element={<TrailResults />} />
           <Route path="gearList" element={<GearInventoryHome />} />
           <Route path="favoritedTrails" element={<FavoritedTrailsHome />} />
+          <Route path="packingLists" element={<PackingListsHome />} />
+          <Route path="createPackList" element={<CreatePackList />} />
         </Route>
       </Routes>
     </BrowserRouter>

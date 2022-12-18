@@ -16,8 +16,8 @@ const MamaForm = () => {
     setSelectedForm(value);
   };
   return (
-    <div className=" flex flex-col mt-4 p-4 text-white">
-      <h3 className="text-3xl text-center ">
+    <div className=" flex flex-col mt-4 p-4 ">
+      <h3 className="text-3xl text-center text-white">
         Add New {selectedForm ? selectedForm : "Gear"}
       </h3>
 
