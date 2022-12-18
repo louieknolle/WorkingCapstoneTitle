@@ -35,6 +35,10 @@ export const gearReducer = (state, action) => {
             action.gearType === "favoritedTrails"
               ? [action.payload, ...state.gear.sleepItems]
               : [...state.gear.sleepItems],
+          packingLists:
+            action.gearType === "packingLists"
+              ? [action.payload, ...state.gear.sleepItems]
+              : [...state.gear.sleepItems],
         },
       };
 
@@ -57,6 +61,7 @@ export const GearContextProvider = ({ children }) => {
       footwears: [],
       sleepItems: [],
       favoritedTrails: [],
+      packingLists: [],
     },
   });
 
