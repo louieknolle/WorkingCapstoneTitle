@@ -20,9 +20,9 @@ const FootwearDetails = ({ footwear }) => {
   return (
     <div
       id="footwearDetails"
-      className="m-4 flex flex-row justify-between items-center"
+      className="p-2 flex flex-row justify-between items-center border-t"
     >
-      <h4 className="text-2xl">
+      <h4 className="text-xl">
         {footwear.brand} {footwear.model}
       </h4>
       {/* <p>

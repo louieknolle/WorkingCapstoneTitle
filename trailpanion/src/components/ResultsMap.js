@@ -16,13 +16,13 @@ const ResultsMap = ({ searchPoint, results }) => {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: "mapbox://styles/mapbox/outdoors-v11",
-        center: [searchPoint.lon, searchPoint.lat],
+        center: [searchPoint?.lon, searchPoint?.lat],
         zoom: 9,
       });
 
       //   Create default markers
       results.map((result) =>
-        new mapboxgl.Marker().setLngLat([result.lon, result.lat]).addTo(map)
+        new mapboxgl.Marker().setLngLat([result?.lon, result?.lat]).addTo(map)
       );
 
       // Add navigation control (the +/- zoom buttons)

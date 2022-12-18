@@ -2,7 +2,7 @@ import React from "react";
 import { useGearContext } from "../hooks/useGearContext";
 // import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
-const ShelterDetails = ({ shelter }) => {
+const ShelterDetails = ({ shelter, onSubmitted }) => {
   const { dispatch } = useGearContext();
   const handleClick = async () => {
     const response = await fetch("/api/shelters/" + shelter._id, {
@@ -16,24 +16,37 @@ const ShelterDetails = ({ shelter }) => {
     }
   };
 
+  const handleAddToList = () => {
+    onSubmitted(shelter);
+  };
+
   return (
     <div
       id="shelterDetails"
-      className="m-2 flex flex-row justify-between items-center h-16 overflow-y-auto"
+      className="p-2 flex flex-row justify-between items-center border-t"
     >
-      <h4 className="text-2xl">
+      <h4 className="text-xl">
         {shelter.brand} {shelter.model}
       </h4>
       {/* <p>
         <strong>Weight (g): </strong>
         {Shelter.style}
       </p> */}
-      <span
-        className="material-symbols-outlined cursor-pointer"
-        onClick={handleClick}
-      >
-        delete
-      </span>
+      {!!onSubmitted ? (
+        <span
+          className="material-symbols-outlined cursor-pointer"
+          onClick={handleAddToList}
+        >
+          add_circle
+        </span>
+      ) : (
+        <span
+          className="material-symbols-outlined cursor-pointer"
+          onClick={handleClick}
+        >
+          delete
+        </span>
+      )}
     </div>
   );
 };

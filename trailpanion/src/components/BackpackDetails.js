@@ -1,6 +1,5 @@
 import React from "react";
 import { useGearContext } from "../hooks/useGearContext";
-// import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const BackpackDetails = ({ backpack, onSubmitted }) => {
   const { dispatch } = useGearContext();

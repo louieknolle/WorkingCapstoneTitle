@@ -19,9 +19,9 @@ const SleepItemDetails = ({ sleepItem }) => {
   return (
     <div
       id="sleepItemDetails"
-      className="m-4 flex flex-row justify-between items-center"
+      className="p-2 flex flex-row justify-between items-center border-t"
     >
-      <h4 className="text-2xl">
+      <h4 className="text-xl">
         {sleepItem.brand} {sleepItem.model}
       </h4>
       {/* <p>

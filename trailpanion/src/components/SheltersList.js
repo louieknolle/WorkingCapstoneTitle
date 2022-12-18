@@ -22,7 +22,7 @@ const SheltersList = () => {
   }, [dispatch]);
   return (
     <React.Fragment>
-      <div className="shelters  bg-white w-1/5">
+      <div className="shelters  bg-white w-1/5 h-72 overflow-y-auto rounded drop-shadow-md border-b">
         <h2 className="text-3xl m-2 text-center">Shelter</h2>
         {shelters.length
           ? shelters.map((shelter) => (
