@@ -29,7 +29,7 @@ const PackingListsHome = () => {
   return (
     <div className="ml-1/4">
       <h1 className="text-3xl text-center mt-4 text-white">Packing Lists</h1>
-      <div className="overflow-y-auto flex flex-row flex-wrap justify-center mt-12">
+      <div className="overflow-y-auto flex flex-row flex-wrap justify-center">
         <PackingListsList packingLists={packingLists} />
       </div>
     </div>

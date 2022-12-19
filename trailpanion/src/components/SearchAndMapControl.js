@@ -45,11 +45,6 @@ const SearchAndMapControl = () => {
       >
         {results.length > 0 ? (
           <>
-            <TrailResults
-              trailsList={results}
-              userData={userData}
-              activity={activity}
-            />
             <div className="flex justify-center">
               <button
                 className="border-2 p-2 bg-white rounded-md text-center m-auto text-midnightBlue border-springGreen"
@@ -62,6 +57,11 @@ const SearchAndMapControl = () => {
                 Back to search
               </button>
             </div>
+            <TrailResults
+              trailsList={results}
+              userData={userData}
+              activity={activity}
+            />
           </>
         ) : (
           <SearchForm onSearchTrails={onSubmitSearch} />

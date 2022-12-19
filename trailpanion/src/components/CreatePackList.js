@@ -90,12 +90,12 @@ const CreatePackList = () => {
             </div>
           </div>
         </div>
-        <div className="gearList w-full flex flex-col justify-evenly">
-          <div className="flex justify-evenly mt-2">
+        <div className="gearList w-full flex flex-col justify-start">
+          <div className="flex justify-evenly mt-4">
             <BackpacksList onSubmitted={onSubmitted} />
             <FootwearsList onSubmitted={onSubmitted} />
           </div>
-          <div className="flex justify-evenly mt-8">
+          <div className="flex justify-evenly mt-4">
             <SheltersList onSubmitted={onSubmitted} />
             <SleepItemsList onSubmitted={onSubmitted} />
           </div>

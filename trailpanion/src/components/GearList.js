@@ -7,7 +7,7 @@ import SleepItemsList from "./SleepItemsList";
 const GearList = () => {
   return (
     <React.Fragment>
-      <div className="gearList w-full flex flex-col justify-evenly">
+      <div className="gearList w-full flex flex-col justify-center">
         <div className="flex justify-evenly mt-4">
           <BackpacksList />
           <FootwearsList />

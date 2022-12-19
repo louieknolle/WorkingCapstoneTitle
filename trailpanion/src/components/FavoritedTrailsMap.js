@@ -9,7 +9,7 @@ const FavoritedTrailsMap = ({ favoritedTrails }) => {
 
   // Initialize map when component mounts
   useEffect(() => {
-    if (favoritedTrails) {
+    if (!!favoritedTrails) {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: "mapbox://styles/mapbox/outdoors-v11",

@@ -31,7 +31,7 @@ const PackingListDetails = ({ packingList }) => {
   useEffect(() => {
     let sum = 0;
     for (let i = 0; i < itemsWeightArray?.length; i++) {
-      sum += itemsWeightArray[i];
+      if (typeof itemsWeightArray[i] === "number") sum += itemsWeightArray[i];
     }
     setPackWeight(sum);
   }, [itemsWeightArray]);
@@ -41,7 +41,7 @@ const PackingListDetails = ({ packingList }) => {
       id="packingListDetails"
       className="p-2 justify-between items-center border-t flex flex-col justify center"
     >
-      <div className="flex justify-between">
+      <div className="flex justify-evenly items-center">
         <h4 className="text-2xl">{packingList.list_name}</h4>
         <span
           className="material-symbols-outlined cursor-pointer"
@@ -55,7 +55,7 @@ const PackingListDetails = ({ packingList }) => {
           {listItem.brand} {listItem.model}
         </p>
       ))}
-      <p>Total weight: {packWeight} g</p>
+      {/* <p>Total weight: {packWeight} g</p> */}
     </div>
   );
 };
