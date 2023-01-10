@@ -20,3 +20,4 @@ https://user-images.githubusercontent.com/91914975/211627805-0327263c-5740-4519-
 ### Remaining Tasks to Accomplish
 * add user authentication and authorization
 * redesign UI 
+* deploy via netlify
