@@ -1,5 +1,5 @@
-## Trail-panion Hiking App
-## Louie Knolle
+## 'Venture 'Splorin' Hiking App
+### Louie Knolle
 
 #### Allows users to search for hiking trails around a central location and view specific details for each result.  Once logged in, users can also create and save a gear inventory for their personal outdoors gears and create custom packing lists for future trips.  They also have the ability to save favorite hiking trails to a Favorited Trails list. 
 
